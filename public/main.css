@@ -1,0 +1,21 @@
+body {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.titles {
+    display: flex;
+    justify-content: center;
+}
+
+.description {
+    margin-left: 75px;
+}
+
+.lable {
+    font-weight: bold;
+}
+
+.routes {
+    line-height: 60%;
+}

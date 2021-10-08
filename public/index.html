@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="welcome" class="titles">Welcome to Michael Bartlett's JS311 Check Point </h1>
+        <div id="instructions" class="titles">
+            This page is just referance only, request will need to be made in Postman
+        </div>
+        <div class="titles">There is a layout of the database tables in the sqlTable.sql file</div>
+        <br>
+        <div class="routes">
+            <p class="lable">-POST/record </p>
+                        <p class="description">-body {ingredient: "name of ingredient", preptime: "time amount", instruction: "say what to do"}</p>
+                        <p class="description">will add a new ingredient to our ingredients table in the database</p>
+                            <br>
+            <p class="lable">GET/list  </p> 
+                        <p class="description">there is no body, we are just requesting the entire ingredients table</p> 
+                            <br>
+            <p class="lable">GET/record  </p> 
+                        <p class="description">will list all of the ingredient in the ingredients table from the database</p>
+                            <br>
+            <p class="lable">DELETE/:ingredient  </p> 
+                        <p class="description">will delete the ingredient that is entered in the place of ":ingredient"</p>
+                            <br>
+            <p class="lable">PUT/put </p>
+                        <p class="description">-body {ingredient: "name of ingredient you want to change instruction on", instruction: "give new instruction"}</p>
+                        <p class="description">select ingredient and then change instructions on that selected ingredient</p>
+
+        </div>
+   
+
+</body>
+    <script src="../index.js"></script>
+</html>
