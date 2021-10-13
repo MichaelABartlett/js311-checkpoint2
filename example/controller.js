@@ -363,9 +363,15 @@ let putIngredients = (req, res) => {
     //console.log("instructions: ", instruction)
 
     // MySQL statement is below. 
-    let sql = `update ingredients set instruction = '${instruction}'  where ingredient =  '${ingredient}' `;
+    //let sql = `update ingredients set instruction = '${instruction}'  where ingredient =  '${ingredient}' `;
+    let sql = "update ingredients set instruction = ?  where ingredient =  ? "
 
-    db.query(sql, function(error, rows){
+        // Below we are pushing all the 'req.body...' from above into a list
+        let params = [];
+        params.push(instruction);
+        params.push(ingredient);
+        
+    db.query(sql, params, function(error, rows){
         if(error){
             console.log("Failed to change to database", error);
             res.status(500).send("Something has went wrong, the instruction was not changed"); // if something went wrong
