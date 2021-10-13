@@ -23,7 +23,6 @@ app.use(exampleRoute);
 // tesing Heroku *******************************************************
 
 app.get("/", function(req, res){
-    console.log("inside testing huroku  browser frunction")
     //res.send("Hello Heroku App this is new to me, The code is: "+ process.env.SuperSecretCode)
     let thing = 'I think this means we are working';
     res.send(thing);
