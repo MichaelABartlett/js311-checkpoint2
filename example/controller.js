@@ -116,19 +116,26 @@ let getRecipes = function(req, res){
 // ******************************************************************************************
 
 
-// delete/recipe/:recipe
+// delete/recipe
+
+// Below is the layout of the object that will be getting deleted
+    /**
+     * { 
+     * "recipe_name": "name of recipe to be deleted",
+     * }
+     */
 
 let deleteRecipeByRecipe = (req, res) => {
 
     // this is the request from the client
-    deleteItem = req.params.recipe; 
+    let deleteItem = req.body.recipe_name; 
 
     // the request 'now deleteItem' will be inserted into the sql statement below
-    let sql = `delete from recipe where recipe_name = '${deleteItem}' ;` 
+    let sql = "delete from recipe where recipe_name = (?)"
    
     console.log("recipe to delete: ", deleteItem);
       
-    db.query(sql, (err, results) => {
+    db.query(sql, deleteItem, (err, results) => {
         if(err){
             console.log("the error is: ", err)
             res.status(500).send("The recipe did not exist or check spelling"); 
@@ -163,9 +170,17 @@ let putRecipe = (req, res) => {
     //console.log("servings: ", servings)
 
     // MySQL statement is below. 
-    let sql = `update recipe set servings = '${servings}'  where recipe_name =  '${recipe_name}' `;
+    let sql = "update recipe set servings = (?)  where recipe_name =  (?)"
 
-    db.query(sql, function(error, rows){
+//
+
+        // Below we are pushing all the 'req.body...' from above into a list
+        let params = [];
+        params.push(servings);
+        params.push(recipe_name);
+        
+//
+    db.query(sql,params, function(error, rows){
         if(error){
             console.log("Failed to change to database", error);
             res.status(500).send("Something has went wrong, the serving was not changed"); // if something went wrong
@@ -294,19 +309,26 @@ let getIngredients = function(req, res){
 // ******************************************************************************************
 
 
-// delete/ingredient/:ingredient
+// delete/ingredient
+
+// Below is the layout of the object that will be getting deleted
+    /**
+     * { 
+     * "ingredient": "name of ingredient to be deleted",
+     * }
+     */
 
 let deleteIngredientByIngredient = (req, res) => {
 
     // this is the request from the client
-    deleteItem = req.params.ingredient; 
+    let deleteItem = req.body.ingredient; 
 
     // the request 'now deleteItem' will be inserted into the sql statement below
-    let sql = `delete from ingredients where ingredient = '${deleteItem}' ;` 
+    let sql = "delete from ingredients where ingredient = (?)"
    
     console.log("ingredient to delete: ", deleteItem);
       
-    db.query(sql, (err, results) => {
+    db.query(sql, deleteItem, (err, results) => {
         if(err){
             console.log("the error is: ", err)
             res.status(500).send("The ingredient did not exist or check spelling"); // why is it sending this
@@ -356,6 +378,7 @@ let putIngredients = (req, res) => {
 }
 
 // end of ingredients ******************************************************************************************
+
 
 
 // list all the functions that you want to export, this will allow them to be read in other files

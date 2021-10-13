@@ -8,7 +8,9 @@ const router = express.Router();
 // this gets the call to the correct file where the functions exist
 let controller = require("./controller");
 
-// beginning of recipes ************************************************************8
+
+
+// beginning of recipes ***********************************************************
 
 // POST   
 // POST/add -body {recipe_name: "name of recipe", image: "image url", servings: "enter the number of servings"}
@@ -39,7 +41,7 @@ router.get("/recipe/allNames", controller.getRecipes);
 // will delete the recipe that is entered in the place of ":recipe"
 
 // the route, (the folder we are going into)controller.deleteRecipeByRecipe(the function we are calling)
-router.delete('/recipe/:recipe', controller.deleteRecipeByRecipe)
+router.delete('/recipe', controller.deleteRecipeByRecipe)
 
 
 // PUT
@@ -82,7 +84,7 @@ router.get("/ingredient/allNames", controller.getIngredients);
 // will delete the ingredient that is entered in the place of ":ingredient"
 
 // the route, (the folder we are going into)controller.deleteIngredientByIngredient(the function we are calling)
-router.delete('/ingredient/:ingredient', controller.deleteIngredientByIngredient)
+router.delete('/ingredient', controller.deleteIngredientByIngredient)
 
 
 // PUT

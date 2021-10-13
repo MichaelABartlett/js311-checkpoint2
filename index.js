@@ -20,6 +20,16 @@ app.use(express.static("./public")); // this is not in use yet
 let exampleRoute = require("./example/route");
 app.use(exampleRoute);
 
+// tesing Heroku *******************************************************
+
+app.get("/", function(req, res){
+    console.log("inside testing huroku browser frunction")
+    //res.send("Hello Heroku App this is new to me, The code is: "+ process.env.SuperSecretCode)
+    let thing = 'I think this means we are working';
+    res.send(thing);
+})
+
+
 
 // this is not in use anymore
 //const port = process.env.PORT || 4001; // setting the port we are using
