@@ -1,5 +1,6 @@
 
 
+
 const express = require("express");
 
 let env = require("dotenv").config(); // it does not need to be a variable
@@ -22,11 +23,11 @@ app.use(exampleRoute);
 
 // tesing Heroku *******************************************************
 
-// app.get("/", function(req, res){
-//     //res.send("Hello Heroku App this is new to me, The code is: "+ process.env.SuperSecretCode)
-//     let thing = 'I think this means we are working';
-//     res.send(thing);
-// })
+app.get("/", function(req, res){
+    //res.send("Hello Heroku App this is new to me, The code is: "+ process.env.SuperSecretCode)
+    let thing = 'I think this means we are working';
+    res.send(thing);
+})
 
 
 
