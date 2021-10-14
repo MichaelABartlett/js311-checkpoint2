@@ -56,7 +56,7 @@ CREATE TABLE instructions (
   REFERENCES Recipe (id)
 );
 
-CREATE TABLE users (
+CREATE TABLE cooks (
   id INT NOT NULL AUTO_INCREMENT,
   full_name VARCHAR(100),
   hash_Password VARCHAR(1000),
@@ -65,13 +65,13 @@ CREATE TABLE users (
   PRIMARY KEY (id)
 );
 
-CREATE TABLE user_calander (
+CREATE TABLE cooks_calander (
   id INT NOT NULL AUTO_INCREMENT,
-  user_id INT NOT NULL,  -- must be tied to something, can not be null
+  cooks_id INT NOT NULL,  -- must be tied to something, can not be null
   cooking_Date_Time DATETIME,
   PRIMARY KEY (id),
-  FOREIGN KEY (user_id) -- connects to the user table, this is a primary key in that table
-  REFERENCES users (id) -- this is the table that the foreign key is located
+  FOREIGN KEY (cooks_id) -- connects to the user table, this is a primary key in that table
+  REFERENCES cooks (id) -- this is the table that the foreign key is located
 );
 
 DROP TABLE IF EXISTS recipe;
