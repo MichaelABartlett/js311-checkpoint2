@@ -15,7 +15,16 @@
         <div class="titles">There is a layout of the database tables in the sqlTable.sql file</div>
         <br>
         <div class="routes">
-            <p class="lable">-POST/redipe/add </p>
+            <p class="lable">-POST/login </p>
+                        <p class="description">-body {"username": "name of user", "password": "enter password"}</p>
+                        <p class="description">will allow a existing user to login</p>
+                            <br>
+            <p class="lable">-POST/createUser </p>
+                        <p class="description">-body {"username": "name of user", "password": "enter password", "confirmPassword": "enter same password"}</p>
+                        <p class="description">will add a new user to our users table in the database</p>
+                        <p class="description">this can only be done by users with admin role</p>
+                            <br>            
+            <p class="lable">-POST/recipe/add </p>
                         <p class="description">-body {"recipe_name": "name of recipe", "image": "URL of image to be added", "servings": "number of servings"}</p>
                         <p class="description">will add a new recipe to our recipe table in the database</p>
                             <br>
