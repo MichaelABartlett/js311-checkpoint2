@@ -15,22 +15,35 @@
         <div class="titles">There is a layout of the database tables in the sqlTable.sql file</div>
         <br>
         <div class="routes">
-            <p class="lable">-POST/record </p>
-                        <p class="description">-body {ingredient: "name of ingredient", preptime: "time amount", instruction: "say what to do"}</p>
+            <p class="lable">-POST/redipe/add </p>
+                        <p class="description">-body {"recipe_name": "name of recipe", "image": "URL of image to be added", "servings": "number of servings"}</p>
+                        <p class="description">will add a new recipe to our recipe table in the database</p>
+                            <br>
+            <p class="lable">-POST/ingredient/add </p>
+                        <p class="description">-body {"ingredient": "name of ingredient", "prep_time": "time amount", "instruction": "say what to do"}</p>
                         <p class="description">will add a new ingredient to our ingredients table in the database</p>
                             <br>
-            <p class="lable">GET/list  </p> 
-                        <p class="description">there is no body, we are just requesting the entire ingredients table</p> 
+            <p class="lable">GET/recipe/list  </p> 
+                        <p class="description">We are just requesting the entire recipe table, there is no body</p> 
                             <br>
-            <p class="lable">GET/record  </p> 
-                        <p class="description">will list all of the ingredient in the ingredients table from the database</p>
+            <p class="lable">GET/ingredient/list  </p> 
+                        <p class="description">We are just requesting the entire ingredients table, there is no body</p>
                             <br>
-            <p class="lable">DELETE/:ingredient  </p> 
-                        <p class="description">will delete the ingredient that is entered in the place of ":ingredient"</p>
+            <p class="lable">DELETE/recipe  </p> 
+                        <p class="description">-body {"recipe_name": "name of recipe to be deleted"</p>
+                        <p class="description">will delete the recipe that is entered from the database</p>
                             <br>
-            <p class="lable">PUT/put </p>
-                        <p class="description">-body {ingredient: "name of ingredient you want to change instruction on", instruction: "give new instruction"}</p>
-                        <p class="description">select ingredient and then change instructions on that selected ingredient</p>
+            <p class="lable">DELETE/ingredient  </p> 
+                        <p class="description">-body {"ingredient": "name of ingredient to be deleted"</p>
+                        <p class="description">will delete the ingredient that is entered from the database</p>
+                            <br>
+            <p class="lable">PUT/recipe/change </p>
+                        <p class="description">-body {"recipe": "name of recipe you want to change servings on", "servings": "new number of servings"}</p>
+                        <p class="description">will select recipe and then change servings on that selected recipe</p>
+                            <br>
+            <p class="lable">PUT/ingredient/change </p>
+                        <p class="description">-body {"ingredient": "name of ingredient you want to change instruction on", "instruction": "new instructions"}</p>
+                        <p class="description">will select ingredient and then change instruction on that selected ingredient</p>
 
         </div>
    

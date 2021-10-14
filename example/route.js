@@ -87,7 +87,7 @@ router.post("/createUser",[auth.checkJwt, auth.isAdmin] ,controller.createUser);
 // will add a new recipe to our recipes table in the database
 
 // the route, (the folder we are going into)controller.addRecipe(the function we are calling)
-router.post("/recipe/add", controller.addRecipe); 
+router.post("/recipe/add", auth.checkJwt, controller.addRecipe); 
 
 
 // LIST   
@@ -107,30 +107,29 @@ router.get("/recipe/allNames", controller.getRecipes);
 
 
 // DELETE
-// DELETE/recipe/:recipe
-// will delete the recipe that is entered in the place of ":recipe"
+// DELETE/recipe -body{"recipe_name": "name if recipe to be deleted"}
 
 // the route, (the folder we are going into)controller.deleteRecipeByRecipe(the function we are calling)
-router.delete('/recipe', controller.deleteRecipeByRecipe)
+router.delete('/recipe', [auth.checkJwt, auth.isAdmin] , controller.deleteRecipeByRecipe)
 
 
 // PUT
-// PUT/put -body {recipe: "name of recipe you want to change servings on", recipe: "new serving amount"}
+// PUT/put -body {"recipe_name": "name of recipe you want to change servings on", "servings": "number of servings"}
 // select recipe and then change serving amount on that selected recipe
 
 // the route, (the folder we are going into)controller.putRecipe(the function we are calling)
-router.put("/recipe/change", controller.putRecipe)
+router.put("/recipe/change", [auth.checkJwt, auth.isAdmin] , controller.putRecipe)
 
 // end of recipes ***************************************************
 
 // beginning of ingredients ************************************************************8
 
 // POST   
-// POST/add -body {ingredient: "name of ingredient", preptime: "time amount", instruction: "say what to do"}
+// POST/add -body {"ingredient": "name of ingredient", "prep_time": "time amount", "instruction": "say what to do"}
 // will add a new ingredient to our ingredients table in the database
 
 // the route, (the folder we are going into)controller.addIngredient(the function we are calling)
-router.post("/ingredient/add", controller.addIngredient); 
+router.post("/ingredient/add", auth.checkJwt, controller.addIngredient); 
 
 
 // LIST   
@@ -150,19 +149,18 @@ router.get("/ingredient/allNames", controller.getIngredients);
 
 
 // DELETE
-// DELETE/ingredient/:ingredient
-// will delete the ingredient that is entered in the place of ":ingredient"
+// DELETE/ingredient -body{"ingredient": "name if ingredient to be deleted"}
 
 // the route, (the folder we are going into)controller.deleteIngredientByIngredient(the function we are calling)
-router.delete('/ingredient', controller.deleteIngredientByIngredient)
+router.delete('/ingredient', [auth.checkJwt, auth.isAdmin] , controller.deleteIngredientByIngredient)
 
 
 // PUT
-// PUT/put -body {ingredient: "name of ingredient you want to change instruction on", instruction: "give new instruction"}
+// PUT/put -body {"ingredient": "name of ingredient you want to change instruction on", "instruction": "give new instruction"}
 // select ingredient and then change instructions on that selected ingredient
 
 // the route, (the folder we are going into)controller.putIngredients(the function we are calling)
-router.put("/ingredient/change", controller.putIngredients)
+router.put("/ingredient/change", [auth.checkJwt, auth.isAdmin] , controller.putIngredients)
 
 // end of ingredients ***************************************************
 

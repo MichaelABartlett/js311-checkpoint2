@@ -20,6 +20,8 @@ app.use(express.static("./public"));
 let exampleRoute = require("./example/route");
 app.use(exampleRoute);
 
+
+
 // this is not in use anymore
 //const port = process.env.PORT || 4001; // setting the port we are using
 
