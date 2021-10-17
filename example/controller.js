@@ -459,7 +459,7 @@ let getIngredients = function(req, res){
 let deleteIngredientByIngredient = (req, res) => {
 
     // this is the request from the client
-    let deleteItem = req.param.id; 
+    let deleteItem = req.params.id; 
 
     // the request 'now deleteItem' will be inserted into the sql statement below
     let sql = "delete from ingredients where ingredient = (?)"
@@ -471,6 +471,7 @@ let deleteIngredientByIngredient = (req, res) => {
             console.log("the error is: ", err)
             res.status(500).send("The ingredient did not exist or check spelling"); // why is it sending this
         } else {
+            console.log("ingredient being deleted")
             res.status(200).send(`The ingredient ${deleteItem} was deleted`)
             }
         })
