@@ -38,13 +38,13 @@
             <p class="lable">GET/ingredient/list  </p> 
                         <p class="description">We are just requesting the entire ingredients table, there is no body</p>
                             <br>
-            <p class="lable">DELETE/recipe  </p> 
-                        <p class="description">-body {"recipe_name": "name of recipe to be deleted"</p>
-                        <p class="description">will delete the recipe that is entered from the database</p>
+            <p class="lable">DELETE/recipe/:id  </p> 
+                        <p class="description">enter the id of recipe to be delete in the place of :id</p>
+                        <p class="description">the recipe with that id will be deleted from the database</p>
                             <br>
-            <p class="lable">DELETE/ingredient  </p> 
-                        <p class="description">-body {"ingredient": "name of ingredient to be deleted"</p>
-                        <p class="description">will delete the ingredient that is entered from the database</p>
+            <p class="lable">DELETE/ingredient/:id  </p> 
+                        <p class="description">enter the id of ingredient to be deleted in the plae of :id</p>
+                        <p class="description">the ingredient with that id will be deleted from the database</p>
                             <br>
             <p class="lable">PUT/recipe/change </p>
                         <p class="description">-body {"recipe": "name of recipe you want to change servings on", "servings": "new number of servings"}</p>
