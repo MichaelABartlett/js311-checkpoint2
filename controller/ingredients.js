@@ -72,6 +72,7 @@ const jwt = require("jsonwebtoken");
                 console.log("Failed to add to database", error);
                 res.sendStatus(500); // if something went wrong
             } else {
+                //console.log(json.stringify(req.headers));
                 res.status(201).send("Ingredient added to database"); // letting client know everything went good
             }
         })

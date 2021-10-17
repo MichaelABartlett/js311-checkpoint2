@@ -53,10 +53,19 @@
             <p class="lable">PUT/ingredient/change </p>
                         <p class="description">-body {"ingredient": "name of ingredient you want to change instruction on", "instruction": "new instructions"}</p>
                         <p class="description">will select ingredient and then change instruction on that selected ingredient</p>
-            <p class="lable">GET/recipe/ingredients </p>
+                            <br>
+            <p class="lable">POST/recipe_ingredient/add </p>
+                        <p class="description">-body {recipe_id: "id of recipe", ingredient_id: "id of ingredient"}</p>
+                        <p class="description">will add a new ingredient to our recipe_ingredient table in the database</p>
+                            <br> 
+            <p class="lable">GET/recipe_ingredient/list </p>
+                        <p class="description">there is no body, we are just requesting the entire recipe_ingredient table</p>
+                        <p class="description">will display the recipe_ingredient table</p>
+                            <br> 
+            <p class="lable">GET/recipe_ingredient/listRecipe </p>
                         <p class="description">currently under construction</p>
                         <p class="description">will select recipe and then display all the ingredients on that selected recipe</p>
-                            <br> 
+                            <br>
             <p class="lable">GET/user/likedRecipes </p>
                         <p class="description">currently under construction</p>
                         <p class="description">will select user and then display all the liked recipes on that selected user</p>

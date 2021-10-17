@@ -30,42 +30,45 @@ INSERT INTO user_calander ( user_id, cooking_Date_Time)
 
 CREATE TABLE recipe (
   id INT NOT NULL AUTO_INCREMENT,  -- database is adding a id number
-  recipe_name VARCHAR(100),
+  recipe_name VARCHAR(100) NOT NULL,
+  added_id INT,
   image BLOB,
-  servings INT,
-  PRIMARY KEY (id)
+  servings INT NOT NULL,
+  locked VARCHAR(10),
+  PRIMARY KEY (id),
+  FOREIGN KEY (added_id) REFERENCES users (id)
 );
+
+CREATE TABLE recipe_instruction (
+  id INT NOT NULL AUTO_INCREMENT,
+  recipe_id INT NOT NULL,
+  instruction VARCHAR(5000) not null,
+  PRIMARY KEY (id),
+  FOREIGN KEY (recipe_id) REFERENCES recipe (id)
+  );
+
+
 
 CREATE TABLE ingredients (
   id INT NOT NULL AUTO_INCREMENT,
-  recipe_id INT NOT NULL,  -- must be tied to something, can not be null
   ingredient VARCHAR(250),
   prep_Time VARCHAR(150),
-  instruction VARCHAR(250),
-  PRIMARY KEY (id),
-  FOREIGN KEY (recipe_id) -- connects to the user table, this is a primary key in that table
-  REFERENCES recipe (id) -- this is the table that the foreign key is located
-);
-
-CREATE TABLE instructions (
-  id INT NOT NULL AUTO_INCREMENT,
-  recipe_id INT NOT NULL,
-  instruction VARCHAR(10000),
-  PRIMARY KEY (id),
-  FOREIGN KEY (Recipe_id) -- connects to the user table, this is a primary key in that table
-  REFERENCES Recipe (id)
-);
-
-CREATE TABLE cooks (
-  id INT NOT NULL AUTO_INCREMENT,
-  full_name VARCHAR(100),
-  hash_Password VARCHAR(1000),
-  email VARCHAR(80),
-  level VARCHAR(25),
+  instruction VARCHAR(500),
   PRIMARY KEY (id)
 );
 
-CREATE TABLE cooks_calander (
+
+CREATE TABLE recipe_ingredient (
+  id INT NOT NULL AUTO_INCREMENT,
+  recipe_id INT,
+  ingredient_id INT,
+  PRIMARY KEY (id),
+  FOREIGN KEY (recipe_id) REFERENCES recipe (id),
+  FOREIGN KEY (ingredient_id) REFERENCES ingredients (id)
+);
+
+
+CREATE TABLE user_calander (
   id INT NOT NULL AUTO_INCREMENT,
   cooks_id INT NOT NULL,  -- must be tied to something, can not be null
   cooking_Date_Time DATETIME,
@@ -74,6 +77,16 @@ CREATE TABLE cooks_calander (
   REFERENCES cooks (id) -- this is the table that the foreign key is located
 );
 
+DROP TABLE IF EXISTS users;
+
+create table users (
+	id int not null auto_increment,
+    username varchar(100) not null,
+    password_hash varchar(10000) not null,
+    role varchar(300),
+    PRIMARY KEY(id)
+    );
+   
 DROP TABLE IF EXISTS recipe;
 
 DROP TABLE IF EXISTS users;

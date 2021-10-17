@@ -23,6 +23,9 @@ app.use(exampleRoute);
 let recipeRoute = require("./routes/recipe");
 app.use(recipeRoute);
 
+let recipeIngredientRoute = require("./routes/recipe_ingredient");
+app.use(recipeIngredientRoute);
+
 let ingredientsRoute = require("./routes/ingredients");
 app.use(ingredientsRoute);
 
