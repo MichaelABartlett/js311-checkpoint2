@@ -447,7 +447,7 @@ let getIngredients = function(req, res){
 // ******************************************************************************************
 
 
-// delete/ingredient
+// delete/ingredient/:id
 
 // Below is the layout of the object that will be getting deleted
     /**
@@ -459,7 +459,7 @@ let getIngredients = function(req, res){
 let deleteIngredientByIngredient = (req, res) => {
 
     // this is the request from the client
-    let deleteItem = req.body.ingredient; 
+    let deleteItem = req.param.id; 
 
     // the request 'now deleteItem' will be inserted into the sql statement below
     let sql = "delete from ingredients where ingredient = (?)"
