@@ -9,7 +9,7 @@ app.use(express.json());
 
 let env = require("dotenv").config(); // it does not need to be a variable
 
-require("./example/db");
+require("./connection/db");
 
 // selecting the port to use
 let port = process.env.PORT;
@@ -17,8 +17,14 @@ let port = process.env.PORT;
 // connect to static content
 app.use(express.static("./public"));
 
-let exampleRoute = require("./example/route");
+let exampleRoute = require("./routes/user");
 app.use(exampleRoute);
+
+let recipeRoute = require("./routes/recipe");
+app.use(recipeRoute);
+
+let ingredientsRoute = require("./routes/ingredients");
+app.use(ingredientsRoute);
 
 
 

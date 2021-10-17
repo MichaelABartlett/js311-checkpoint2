@@ -1,6 +1,6 @@
 
 // to connect to the database
-const db = require("./db");
+const db = require("../connection/db");
 
 require("dotenv").config(); // it does not need to be a variable
 
