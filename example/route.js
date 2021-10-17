@@ -152,7 +152,7 @@ router.get("/ingredient/allNames", controller.getIngredients);
 // DELETE/ingredient -body{"ingredient": "name if ingredient to be deleted"}
 
 // the route, (the folder we are going into)controller.deleteIngredientByIngredient(the function we are calling)
-router.delete('/ingredient', [auth.checkJwt, auth.isAdmin] , controller.deleteIngredientByIngredient)
+router.delete('/ingredient/:id', [auth.checkJwt, auth.isAdmin] , controller.deleteIngredientByIngredient)
 
 
 // PUT
