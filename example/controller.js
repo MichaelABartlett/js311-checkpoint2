@@ -254,7 +254,7 @@ let getRecipes = function(req, res){
 // ******************************************************************************************
 
 
-// delete/recipe
+// delete/recipe/:id
 
 // Below is the layout of the object that will be getting deleted
     /**
@@ -266,10 +266,10 @@ let getRecipes = function(req, res){
 let deleteRecipeByRecipe = (req, res) => {
 
     // this is the request from the client
-    let deleteItem = req.body.recipe_name; 
+    let deleteItem = req.params.id; 
 
     // the request 'now deleteItem' will be inserted into the sql statement below
-    let sql = "delete from recipe where recipe_name = (?)"
+    let sql = "delete from recipe where id = ?"
    
     console.log("recipe to delete: ", deleteItem);
       
@@ -448,13 +448,7 @@ let getIngredients = function(req, res){
 
 
 // delete/ingredient/:id
-
-// Below is the layout of the object that will be getting deleted
-    /**
-     * { 
-     * "ingredient": "name of ingredient to be deleted",
-     * }
-     */
+// enter the id of the ingredient that you want deleted
 
 let deleteIngredientByIngredient = (req, res) => {
 
@@ -462,17 +456,16 @@ let deleteIngredientByIngredient = (req, res) => {
     let deleteItem = req.params.id; 
 
     // the request 'now deleteItem' will be inserted into the sql statement below
-    let sql = "delete from ingredients where ingredient = (?)"
+    let sql = "delete from ingredients where id = ? "
    
-    console.log("ingredient to delete: ", deleteItem);
+    console.log("ingredient to delete: ", deleteItem)
       
     db.query(sql, deleteItem, (err, results) => {
         if(err){
             console.log("the error is: ", err)
-            res.status(500).send("The ingredient did not exist or check spelling"); // why is it sending this
+            res.status(500).send("The ingredient did not exist or check spelling"); 
         } else {
-            console.log("ingredient being deleted")
-            res.status(200).send(`The ingredient ${deleteItem} was deleted`)
+            res.status(200).send(`The ingredient ${deleteItem} was deleted`);
             }
         })
   }

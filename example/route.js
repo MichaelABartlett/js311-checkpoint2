@@ -107,10 +107,11 @@ router.get("/recipe/allNames", controller.getRecipes);
 
 
 // DELETE
-// DELETE/recipe -body{"recipe_name": "name if recipe to be deleted"}
+// DELETE/recipe/:id
+// enter the id of the recipe that you want deleted in the place of the :id
 
 // the route, (the folder we are going into)controller.deleteRecipeByRecipe(the function we are calling)
-router.delete('/recipe', [auth.checkJwt, auth.isAdmin] , controller.deleteRecipeByRecipe)
+router.delete('/recipe/:id', [auth.checkJwt, auth.isAdmin] , controller.deleteRecipeByRecipe)
 
 
 // PUT
@@ -149,7 +150,8 @@ router.get("/ingredient/allNames", controller.getIngredients);
 
 
 // DELETE
-// DELETE/ingredient -body{"ingredient": "name if ingredient to be deleted"}
+// DELETE/ingredient/:id
+// enter the id of the ingredient that you want deleted in the place of :id
 
 // the route, (the folder we are going into)controller.deleteIngredientByIngredient(the function we are calling)
 router.delete('/ingredient/:id', [auth.checkJwt, auth.isAdmin] , controller.deleteIngredientByIngredient)
