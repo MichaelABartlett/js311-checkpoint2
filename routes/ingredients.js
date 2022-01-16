@@ -21,11 +21,11 @@ const db = require("../connection/db");
 // beginning of ingredients ************************************************************8
 
 // POST   
-// POST/add -body {"ingredient": "name of ingredient", "prep_time": "time amount", "instruction": "say what to do"}
+// POST/addRecipeIncredient -body {"ingredient": "name of ingredient", "prep_time": "time amount", "instruction": "say what to do"}
 // will add a new ingredient to our ingredients table in the database
 
 // the route, (the folder we are going into)controller.addIngredient(the function we are calling)
-router.post("/ingredient/add", auth.checkJwt, controller.addIngredient); 
+router.post("/ingredient/addRecipeIngredient", auth.checkJwt, controller.addRecipeIngredient); 
 
 
 // LIST   

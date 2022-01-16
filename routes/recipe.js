@@ -17,12 +17,25 @@ const db = require("../connection/db");
 
 // beginning of recipes ***********************************************************
 
+// add new recipe
 // POST   
-// POST/add -body {recipe_name: "name of recipe", image: "image url", servings: "enter the number of servings"}
+// POST/add -body {recipe_name: "name of recipe", 
+                    //image: "image url",
+                    // servings: "enter the number of servings",
 // will add a new recipe to our recipes table in the database
 
 // the route, (the folder we are going into)controller.addRecipe(the function we are calling)
 router.post("/recipe/add", auth.checkJwt, controller.addRecipe); 
+
+
+// add instruction step to recipe
+// POST   
+// POST/addRecipeInstuctionStep -body {recipe_id: "id of recipe", 
+                                    //instruction: "instruction step",
+// will add a new recipe to our recipes table in the database
+
+// the route, (the folder we are going into)controller.addRecipe(the function we are calling)
+router.post("/recipe/addRecipeInstructionStep", auth.checkJwt, controller.addRecipeInstructionStep); 
 
 
 // LIST   

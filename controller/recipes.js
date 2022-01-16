@@ -73,10 +73,73 @@ let addRecipe = function(req, res){
 }
 
 // ****************************************************************
+// add recipe instructions
+
+// POST/recipe/addInstructionStep
+
+// Below is the layout of the object that will be getting added
+    /**
+     * { 
+     * "recipe_id": "id of recipe to add instruction",
+     * "instruction": "instruction setp to be added",
+     * }
+     */
+
+     let addRecipeInstructionStep = function(req, res){
+        console.log("Inside addRecipeInstructionStep");
+    
+        // Each corresponding variable is saving the value of the request body that was entered into the odject
+        // This will be added into Postman as a json body
+        let recipe_id = req.body.recipe_id;
+        let instruction = req.body.instruction;
+    
+        console.log("right before if statement")
+        // checking if the client added all fields
+        // inserting a response if client does not enter a field
+        if(!recipe_id){
+            res.status(400).send('recipe_name is required')
+            return
+          } else if(!instruction){
+            res.status(400).send('instruction is required')
+              return
+          } else 
+            console.log("made it thru the if statement")
+           
+        // console.log("made it past if statment")
+    
+        // MySQL statement is below. The "?" are placeholders where the variables will be added
+        // The items in the () below must be in order, that is how they will be inserted
+        let sql = "INSERT INTO recipe (recipe_id, instruction) values ( ? , ? )"
+    
+        // Below we are pushing all the 'req.body...' from above into a list
+        let params = [];
+        params.push(recipe_id);
+        params.push(instruction);
+    
+        // the params list will be inserted into the sql statement and ran.
+        // if not a error will git thrown
+        db.query(sql, params,function(error, rows){
+            if(error){
+                console.log("Failed to add to database", error);
+                res.sendStatus(500); // if something went wrong
+            } else {
+                res.status(201).send("Recipe added to database"); // letting client know everything went good
+            }
+        })
+    }
+    
+
+// ****************************************************************
+
+// add recipe ingredients
+// this is doen in the recipe_ingredient folder with the addRecipeIngredient function
+
+// ****************************************************************
 
 
 // LIST 
 // GET/recipe/list
+// this is losting all the recipe table
 let listRecipes = function(req, res){
     console.log("LIST listRecipes()");
 
@@ -98,6 +161,7 @@ let listRecipes = function(req, res){
 // ****************************************************************
 
 // GET/recipe/allNames
+// displays all the recipe names in racipe table
 let getRecipes = function(req, res){
     console.log("GET getRecipes()");
 
@@ -204,4 +268,4 @@ let putRecipe = (req, res) => {
 
 
 // list all the functions that you want to export, this will allow them to be read in other files
-module.exports = { addRecipe, getRecipes, deleteRecipeByRecipe, listRecipes, putRecipe} 
+module.exports = { addRecipe, addRecipeInstructionStep , getRecipes, deleteRecipeByRecipe, listRecipes, putRecipe} 

@@ -11,3 +11,10 @@ to deploy on Heroku
  git commit -m "something here"
 
  git push heroku master   
+
+ when using PostMan make sure the address being used is "https://michaelbcheckpoint.herokuapp.com"
+    this will got to the right of the 'get' selection box area and before the /what you want to do
+
+    admin user
+        username: "motoCodeMan"
+        password: "12345"
