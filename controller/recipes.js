@@ -75,7 +75,7 @@ let addRecipe = function(req, res){
 // ****************************************************************
 // add recipe instructions
 
-// POST/recipe/addInstructionStep
+// POST/recipe/addRecipeInstructionStep
 
 // Below is the layout of the object that will be getting added
     /**
