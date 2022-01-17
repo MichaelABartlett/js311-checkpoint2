@@ -123,7 +123,7 @@ let addRecipe = function(req, res){
                 console.log("Failed to add to database", error);
                 res.sendStatus(500); // if something went wrong
             } else {
-                res.status(201).send("Recipe added to database"); // letting client know everything went good
+                res.status(201).send("Recipe instruction added to database"); // letting client know everything went good
             }
         })
     }
