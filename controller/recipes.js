@@ -109,7 +109,7 @@ let addRecipe = function(req, res){
     
         // MySQL statement is below. The "?" are placeholders where the variables will be added
         // The items in the () below must be in order, that is how they will be inserted
-        let sql = "INSERT INTO recipe (recipe_id, instruction) values ( ? , ? )"
+        let sql = "INSERT INTO recipe_instruction (recipe_id, instruction) values ( ? , ? )"
     
         // Below we are pushing all the 'req.body...' from above into a list
         let params = [];

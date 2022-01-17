@@ -11,7 +11,7 @@ require("dotenv").config(); // it does not need to be a variable
 const jwt = require("jsonwebtoken");
 
 
-// POST/recipeIngredient/add
+// POST/recipe_ingredient/add
 
 // Below is the layout of the object that will be getting added
     /**
@@ -54,7 +54,7 @@ let addRecipeIngredient = function(req, res){
 
     // MySQL statement is below. The "?" are placeholders where the variables will be added
     // The items in the () below must be in order, that is how they will be inserted
-    let sql = "INSERT INTO recipe_ingredient (recipe_id, ingredient, prep_time, instruction) values ( ? , ? , ? , ?)"
+    let sql = "INSERT INTO recipe_ingredient (recipe_id, ingredient, prep_time, instruction) values ( ? , ? , ? , ? )"
 
     // Below we are pushing all the 'req.body...' from above into a list
     let params = [];

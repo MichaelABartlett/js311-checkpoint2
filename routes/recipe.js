@@ -30,8 +30,8 @@ router.post("/recipe/add", auth.checkJwt, controller.addRecipe);
 
 // add instruction step to recipe
 // POST   
-// POST/addRecipeInstuctionStep -body {recipe_id: "id of recipe", 
-                                    //instruction: "instruction step",
+// POST/recipe/addRecipeInstuctionStep -body {recipe_id: "id of recipe", 
+                                        //instruction: "instruction step",
 // will add a new recipe to our recipes table in the database
 
 // the route, (the folder we are going into)controller.addRecipe(the function we are calling)
