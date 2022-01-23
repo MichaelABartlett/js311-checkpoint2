@@ -20,38 +20,38 @@ const Navigation = (props) => {
 
 
     return (
-        <AppBar>
+        <AppBar position='relative'>
             <Toolbar>
-                <Typography>
-                   
+            <Typography variant="h6" style={{ flexGrow: "1" }}>
+                    Recipe Prep
                 </Typography>
-                <ul className="nav-list">
-                    <li className="navItem">
-                        <Link to="/">Testing</Link>
+                <ul className="nav-list" >
+                    <li className="navItem" >
+                        <Link style={{color: "white", textDecoration: 'none'}} to="/">Testing</Link>
                     </li>
                     <li className="navItem">
-                        <Link to="/addRecipe">App Recipe</Link>
+                        <Link style={{color: "white", textDecoration: 'none'}} to="/addRecipe">App Recipe</Link>
                     </li>
                     <li className="navItem">
-                        <Link to="/logIn">Log In</Link>
+                        <Link style={{color: "white", textDecoration: 'none'}} to="/logIn">Log In</Link>
                     </li>
                     <li className="navItem">
-                        <Link to="/home">Home</Link>
+                        <Link style={{color: "white", textDecoration: 'none'}} to="/home">Home</Link>
                     </li>
                     <li className="navItem">
-                        <Link to="/howItWorks">How It Works</Link>
+                        <Link style={{color: "white", textDecoration: 'none'}} to="/howItWorks">How It Works</Link>
                     </li>
                     <li className="navItem">
-                        <Link to="/calender">Calender</Link>
+                        <Link style={{color: "white", textDecoration: 'none'}} to="/calender">Calender</Link>
                     </li>
                     <li className="navItem">
-                        <Link to="/allRecipeList">All Recipe List</Link>
+                        <Link style={{color: "white", textDecoration: 'none'}} to="/allRecipeList">All Recipe List</Link>
                     </li>
                     <li className="navItem">
-                        <Link to="/pickedRecipe">Picked Recipe</Link>
+                        <Link style={{color: "white", textDecoration: 'none'}} to="/pickedRecipe">Picked Recipe</Link>
                     </li>
                     <li className="navItem">
-                        <Link to="/createProfile">Create Profile</Link>
+                        <Link style={{color: "white", textDecoration: 'none'}} to="/createProfile">Create Profile</Link>
                     </li>
                     {/* <li className="nav-list-item" 
                         onClick={() => {

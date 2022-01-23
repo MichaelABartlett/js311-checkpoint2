@@ -1,0 +1,26 @@
+
+
+.createProfile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+    flex-direction: column;
+    
+  }
+
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    flex-direction: column;
+    width: 300px;
+}
+
+.input {
+    width: 100%;
+    text-align: center;
+    height: 30px;
+}
+  

@@ -1,12 +1,18 @@
 .App {
   text-align: center;
+  
 }
 
+
 .nav-list {
+  list-style: none;
   display: flex;
-  justify-content: space-between;
-  justify-items: center;
-  align-items: center;
+  color: white;
+}
+
+.navItem {
+  margin: auto 20px;
+  color: white;
 }
 
 .logIn {

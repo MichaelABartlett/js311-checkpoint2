@@ -42,12 +42,12 @@ const Router = () => {
             <Route exact path="/" element={<Testing />}/>
             <Route path="/addRecipe" element={ <AddRecipe />}/>
             <Route path="/logIn" element={ <LogIn />} />
-            <Route exact path="/home" element={<Home />}/>
-            <Route exact path="/howItWorks" element={<HowItWorks />}/>
-            <Route exact path="/calender" element={<Calender />}/>
-            <Route exact path="/allRecipeList" element={<AllRecipeList />}/>
-            <Route exact path="/pickedRecipe" element={<PickedRecipe />}/>
-            <Route exact path="/createProfile" element={<CreateProfile />}/>
+            <Route path="/home" element={<Home />}/>
+            <Route path="/howItWorks" element={<HowItWorks />}/>
+            <Route path="/calender" element={<Calender />}/>
+            <Route path="/allRecipeList" element={<AllRecipeList />}/>
+            <Route path="/pickedRecipe" element={<PickedRecipe />}/>
+            <Route path="/createProfile" element={<CreateProfile />}/>
             {/* <ProtectedRoute path="/admin-view" component={AdminView} /> */}
             {/* <Route path="/singleListing/:id" component={BizDetails} /> */}
         </Routes>
