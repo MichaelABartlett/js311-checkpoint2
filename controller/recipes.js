@@ -12,6 +12,8 @@ require("dotenv").config(); // it does not need to be a variable
 // getting the jwt library
 const jwt = require("jsonwebtoken");
 
+
+
 // beginning of recipes  ***************************************************************************
 
 // POST/recipe/add
@@ -20,7 +22,6 @@ const jwt = require("jsonwebtoken");
     /**
      * { 
      * "recipe_name": "name of recipe to be added",
-     * "image": "URL of image to be added",
      * "servings": "number of servings in the recipe"
      * }
      */
@@ -31,7 +32,6 @@ let addRecipe = function(req, res){
     // Each corresponding variable is saving the value of the request body that was entered into the odject
     // This will be added into Postman as a json body
     let recipe_name = req.body.recipe_name;
-    let image = req.body.image;
     let servings = req.body.servings;
 
     console.log("right before if statement")
@@ -43,8 +43,6 @@ let addRecipe = function(req, res){
       } else if(!servings){
         res.status(400).send('serving is required')
           return
-      } else if (!image){
-            image = " "
       } else 
         console.log("made it thru the if statement")
        
@@ -52,12 +50,11 @@ let addRecipe = function(req, res){
 
     // MySQL statement is below. The "?" are placeholders where the variables will be added
     // The items in the () below must be in order, that is how they will be inserted
-    let sql = "INSERT INTO recipe (recipe_name, image, servings) values ( ? , ? , ? )"
+    let sql = "INSERT INTO recipe (recipe_name, servings) values ( ? , ?  )"
 
     // Below we are pushing all the 'req.body...' from above into a list
     let params = [];
     params.push(recipe_name);
-    params.push(image);
     params.push(servings);
 
     // the params list will be inserted into the sql statement and ran.

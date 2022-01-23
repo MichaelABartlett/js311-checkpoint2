@@ -1,6 +1,4 @@
 
-
-
 const express = require("express");
 let app = express();
 
@@ -11,11 +9,19 @@ let env = require("dotenv").config(); // it does not need to be a variable
 
 require("./connection/db");
 
+const bodyParser = require('body-parser')
+
+const cors = require('cors')
+
 // selecting the port to use
 let port = process.env.PORT;
 
 // connect to static content
 app.use(express.static("./public"));
+
+app.use(cors())
+
+app.use(bodyParser.urlencoded({extended: true}))
 
 let exampleRoute = require("./routes/user");
 app.use(exampleRoute);
