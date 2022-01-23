@@ -26,7 +26,7 @@ router.post("/recipe_ingredient/add", auth.checkJwt, controller.addRecipeIngredi
 // LIST   
 // GET/recipe_ingredient/list   there is no body, we are just requesting the entire recipe_ingredient table
 
-router.get("/recipe_ingredient/list", controller.listRecipeIngredient); // 
+router.put("/recipe_ingredient/list", controller.listRecipeIngredient); // 
 
 // we are making the entire file available to the program
 module.exports = router;

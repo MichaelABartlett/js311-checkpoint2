@@ -97,7 +97,11 @@ let listRecipeIngredient = function(req, res){
 
     let sql = "SELECT recipe_ingredient.ingredient FROM recipe_ingredient WHERE recipe = (?);"; 
 
-    db.query(sql, function(error, rows){
+    // Below we are pushing all the 'req.body...' from above into a list
+    let params = [];
+    params.push(recipe_id);
+
+    db.query(sql, params, function(error, rows){
         if(error){
             res.sendStatus(500);
         } else {
