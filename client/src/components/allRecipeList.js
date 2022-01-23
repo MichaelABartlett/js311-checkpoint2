@@ -1,12 +1,23 @@
 import '../Stlyes/allRecipeList.css'
 import React, { useState, useEffect} from "react";
 import Axios from 'axios';
+import { Link } from 'react-router-dom'
 
 
 
 
 
 function AllRecipeList() {
+
+  let recipe = [
+    'Apple Pie',
+    'Fried Chicken',
+    'Baked Potato',
+    'PBJ',
+    'Hot Dog'
+  ]
+
+  // onload a call for a list of all recipe names and added to the recipe variable
 
   const AddNewRecipe = () => {
 
@@ -17,18 +28,17 @@ function AllRecipeList() {
       <h1>Recipes</h1>
       <div className='addNewRecipe' >
         <br/>
-          <input type="text" name="addNewRecipe" placeholder='Add a New Recipe' className='input' onChange={(e) => {
-            AddNewRecipe(e.target.value)
-             }}></input>
+          <Link to="/addRecipe">
+            <button type='button'>
+              Add a new Recipe
+            </button>
+          </Link>
+          
         <br/>
       </div>
       <div className='recipes' >
         <h1>List out recipes here</h1>
-        {/* <ol>{this.state.recipe.map((recipe, index) => {
-            return (
-              <Recipes key={index} name={recipe.name} isLiked={false} image_url={beer.image_url} />
-            )
-          })}</ol>   */}
+        <ul>{recipe.map(name => <li key={name}>{name}</li>)} </ul> 
       </div>
     </main>
 
@@ -36,3 +46,10 @@ function AllRecipeList() {
 }
 
 export default AllRecipeList;
+
+
+{/* <ol>{recipe.map((recipe, index) => {
+            return (
+              <Recipes key={index} name={recipe.name} isLiked={false} image_url={beer.image_url} />
+            )
+          })}</ol>   */}

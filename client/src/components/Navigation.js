@@ -26,23 +26,11 @@ const Navigation = (props) => {
                     Recipe Prep
                 </Typography>
                 <ul className="nav-list" >
-                    <li className="navItem" >
-                        <Link style={{color: "white", textDecoration: 'none'}} to="/">Testing</Link>
-                    </li>
-                    <li className="navItem">
-                        <Link style={{color: "white", textDecoration: 'none'}} to="/addRecipe">App Recipe</Link>
-                    </li>
-                    <li className="navItem">
-                        <Link style={{color: "white", textDecoration: 'none'}} to="/logIn">Log In</Link>
-                    </li>
                     <li className="navItem">
                         <Link style={{color: "white", textDecoration: 'none'}} to="/home">Home</Link>
                     </li>
                     <li className="navItem">
                         <Link style={{color: "white", textDecoration: 'none'}} to="/howItWorks">How It Works</Link>
-                    </li>
-                    <li className="navItem">
-                        <Link style={{color: "white", textDecoration: 'none'}} to="/calender">Calender</Link>
                     </li>
                     <li className="navItem">
                         <Link style={{color: "white", textDecoration: 'none'}} to="/allRecipeList">All Recipe List</Link>
@@ -51,7 +39,19 @@ const Navigation = (props) => {
                         <Link style={{color: "white", textDecoration: 'none'}} to="/pickedRecipe">Picked Recipe</Link>
                     </li>
                     <li className="navItem">
+                        <Link style={{color: "white", textDecoration: 'none'}} to="/addRecipe">Add Recipe</Link>
+                    </li>
+                    <li className="navItem">
+                        <Link style={{color: "white", textDecoration: 'none'}} to="/calender">Calender</Link>
+                    </li>
+                    <li className="navItem">
                         <Link style={{color: "white", textDecoration: 'none'}} to="/createProfile">Create Profile</Link>
+                    </li>
+                    <li className="navItem">
+                        <Link style={{color: "white", textDecoration: 'none'}} to="/logIn">Log In</Link>
+                    </li>
+                    <li className="navItem" >
+                        <Link style={{color: "white", textDecoration: 'none'}} to="/">Testing</Link>
                     </li>
                     {/* <li className="nav-list-item" 
                         onClick={() => {
