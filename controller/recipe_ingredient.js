@@ -77,14 +77,25 @@ let addRecipeIngredient = function(req, res){
 
 // ****************************************************************
 
-
+// this will list the ingredients for a single recipe
 // LIST 
-// GET/recipe_ingredient/list
+// PUT/recipe_ingredient/list
+
+// Below is the layout of the object that will be getting listed
+    /**
+     * { 
+     * "recipe_id": "recipe_id", // id of the recipe that you want to list the ingredients for
+     * }
+     */
+
+
 let listRecipeIngredient = function(req, res){
     console.log("LIST listRecipeIngredient()");
+    
+    let recipe_id = req.body.recipe_id;
 
-    // nothing is added into this sql statement because we are just returning the entire recipes table
-    let sql = "SELECT * FROM recipe_ingredient;"; 
+
+    let sql = "SELECT recipe_ingredient.ingredient FROM recipe_ingredient WHERE recipe = (?);"; 
 
     db.query(sql, function(error, rows){
         if(error){
@@ -157,4 +168,26 @@ module.exports = { addRecipeIngredient, listRecipeIngredient}
     //         }
     //     })
     // }
+
+
+
+    
+// // LIST 
+// // GET/recipe_ingredient/list
+// let listRecipeIngredient = function(req, res){
+//     console.log("LIST listRecipeIngredient()");
+
+//     // nothing is added into this sql statement because we are just returning the entire recipes table
+//     let sql = "SELECT * FROM recipe_ingredient;"; 
+
+//     db.query(sql, function(error, rows){
+//         if(error){
+//             res.sendStatus(500);
+//         } else {
+//             console.log("rows: ", rows)
+//             // returning all the rows in the recipes table
+//             res.json(rows);
+//             }
+//         })
+// }
     
