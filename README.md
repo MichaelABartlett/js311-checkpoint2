@@ -20,4 +20,13 @@ to deploy on Heroku
         password: "12345"
 
 
-      
+
+steps I need to do
+
+run npm run build in \client folder
+
+in server folder index.js and add
+
+    if(process.env.NODE_ENV === 'production')
+        app.use(express.static('client/build'))
+
