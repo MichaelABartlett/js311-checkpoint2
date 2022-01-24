@@ -88,7 +88,7 @@ let listRecipeIngredient = function(req, res){
     let recipe_id = req.params.id;
 
 
-    let sql = "SELECT recipe_ingredient.ingredient FROM recipe_ingredient WHERE recipe = (?);"; 
+    let sql = "SELECT recipe_ingredient.ingredient FROM recipe_ingredient WHERE recipe_id = (?);"; 
 
     
 
