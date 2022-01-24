@@ -77,7 +77,7 @@ let addRecipeIngredient = function(req, res){
 
 // ****************************************************************
 
-// this will list the ingredients for a single recipe
+// this will list the ingredients, prep_time and prep_instruction for a single recipe
 // LIST 
 // GET/recipe_ingredient/:id
 
@@ -88,7 +88,7 @@ let listRecipeIngredient = function(req, res){
     let recipe_id = req.params.id;
 
 
-    let sql = "SELECT recipe_ingredient.ingredient FROM recipe_ingredient WHERE recipe_id = (?);"; 
+    let sql = "SELECT recipe_ingredient.ingredient, recipe_ingredient.prep_time, recipe_ingredient.prep_instruction FROM recipe_ingredient WHERE recipe_id = (?);"; 
 
     
 

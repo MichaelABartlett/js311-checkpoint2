@@ -6,6 +6,12 @@ import Axios from 'axios';
 
 function PickedRecipe() {
 
+  const incredients = [
+    {"ingredient": "bread"},
+    {"ingredient": "Jelly"},
+    {"ingredient": "Peanut Butter"}
+  ]
+
   const SelectDate = () => {
 
   }
@@ -17,14 +23,14 @@ function PickedRecipe() {
   return (
     <div className="pickedRecipe">
       <h1>Selected Recipe</h1>
-      <section className='images'>
+      {/* <section className='images'>
           <div>
             
               <div>
                 <img src={undefined} alt="Image of recipe" height={200} width={300}/>
               </div>  
           </div>
-      </section>
+      </section> */}
       <section className='selectDate' >
         <br/>
         <a className='eachItem' >
@@ -42,7 +48,10 @@ function PickedRecipe() {
         </a>
       </section>
       <h1>All of Recipe Information</h1>
+          <ul>{incredients.map(listIngredients => <li key={listIngredients.ingredient}>{listIngredients.ingredient}</li>)}</ul>
     </div>
+
+
 
   );
 }
