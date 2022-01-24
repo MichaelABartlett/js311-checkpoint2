@@ -8,9 +8,9 @@ function AddRecipe(){
 
     }
     
-    const RecipeImage = () => {
+    // const RecipeImage = () => {
 
-    }
+    // }
 
     const IngredientName = () => {
 
@@ -36,11 +36,11 @@ function AddRecipe(){
                     RecipeName(e.target.value)
                     }}></input>
                 <br/>
-                <br/>
+                {/* <br/>
                 <input type="text" name="recipeImage" placeholder='Recipe Image' className='input' onChange={(e) => {
                     RecipeImage(e.target.value)
                     }}></input>
-                <br/>
+                <br/> */}
             </article>
             <h1>Recipe Ingredients</h1>
                 <div className='ingredientName' >
@@ -66,7 +66,7 @@ function AddRecipe(){
                 </div>
             <h1>Recipe Instructions</h1>
                 <div className='instructions' >
-                    <input type="text" name="recipeInstruction" placeholder='Recipe Instruction' className='input' onChange={(e) => {
+                    <input type="text" name="recipeInstruction" placeholder='Recipe Instruction Step' className='input' onChange={(e) => {
                         RecipeInstruction(e.target.value)
                         }}></input>
                         <br/>

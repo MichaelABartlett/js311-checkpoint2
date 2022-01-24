@@ -7,9 +7,15 @@ import Axios from 'axios';
 function PickedRecipe() {
 
   const incredients = [
-    {"ingredient": "bread"},
-    {"ingredient": "Jelly"},
-    {"ingredient": "Peanut Butter"}
+    {"ingredient": "bread",
+     "prep_time": "none",
+     "prep_instruction": "none"},
+    {"ingredient": "Jelly",
+     "prep_time": "none",
+     "prep_instruction": "none"},
+    {"ingredient": "Peanut Butter",
+     "prep_time": "none",
+     "prep_instruction": "none"}
   ]
 
   const SelectDate = () => {
@@ -48,7 +54,12 @@ function PickedRecipe() {
         </a>
       </section>
       <h1>All of Recipe Information</h1>
+            <h3>Ingredients</h3>
           <ul>{incredients.map(listIngredients => <li key={listIngredients.ingredient}>{listIngredients.ingredient}</li>)}</ul>
+            <h3>Prep Time</h3>
+          <ul>{incredients.map(listIngredients => <li key={listIngredients.ingredient}>{listIngredients.prep_time}</li>)}</ul>
+            <h3>Prep Instructions</h3>
+          <ul>{incredients.map(listIngredients => <li key={listIngredients.ingredient}>{listIngredients.prep_instruction}</li>)}</ul>
     </div>
 
 
