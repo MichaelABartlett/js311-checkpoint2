@@ -79,29 +79,20 @@ let addRecipeIngredient = function(req, res){
 
 // this will list the ingredients for a single recipe
 // LIST 
-// PUT/recipe_ingredient/list
-
-// Below is the layout of the object that will be getting listed
-    /**
-     * { 
-     * "recipe_id": "recipe_id", // id of the recipe that you want to list the ingredients for
-     * }
-     */
+// GET/recipe_ingredient/:id
 
 
 let listRecipeIngredient = function(req, res){
     console.log("LIST listRecipeIngredient()");
     
-    let recipe_id = req.body.recipe_id;
+    let recipe_id = req.params.id;
 
 
     let sql = "SELECT recipe_ingredient.ingredient FROM recipe_ingredient WHERE recipe = (?);"; 
 
-    // Below we are pushing all the 'req.body...' from above into a list
-    let params = [];
-    params.push(recipe_id);
+    
 
-    db.query(sql, params, function(error, rows){
+    db.query(sql, recipe_id, function(error, rows){
         if(error){
             res.sendStatus(500);
         } else {
