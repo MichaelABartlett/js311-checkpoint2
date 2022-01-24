@@ -14,7 +14,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 
 // selecting the port to use
-let port = process.env.PORT;
+let port = process.env.PORT || 5000;
 
 // connect to static content
 app.use(express.static("./public"));
