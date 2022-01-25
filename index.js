@@ -35,7 +35,11 @@ app.use(recipeIngredientRoute);
 let ingredientsRoute = require("./routes/ingredients");
 app.use(ingredientsRoute);
 
-
+app.use(express.static(path.join(__dirname, "/client/build")));
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'index.html'));
+//  });
+ 
 
 // this is not in use anymore
 //const port = process.env.PORT || 4001; // setting the port we are using
