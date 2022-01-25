@@ -11,9 +11,9 @@ const {recipeName, setRecipeName} = useState('')
 const {image, setImage} = useState('')
 const {servings, setServings} = useState('')
 
-const recipeNames = (req,res) => {
+const recipeNames = () => {
   Axios.get("/recipe/allNames")
-  .then(() => {
+  .then(res => {
     console.log(res)
   }) 
   }
