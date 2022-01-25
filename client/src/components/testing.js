@@ -12,7 +12,7 @@ const {image, setImage} = useState('')
 const {servings, setServings} = useState('')
 
 const recipeNames = (req,res) => {
-  Axios.get("/recipe/list")
+  Axios.get("/recipe/allNames")
   .then(() => {
     console.log(res)
   }) 
