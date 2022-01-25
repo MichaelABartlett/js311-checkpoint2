@@ -42,7 +42,7 @@ router.post("/recipe/addRecipeInstructionStep", auth.checkJwt, controller.addRec
 // GET/recipe/list   there is no body, we are just requesting the entire recipes table
 
 // the route, (the folder we are going into)controller.listRecipes(the function we are calling)
-router.get("/recipe/list", controller.listRecipes); // 
+router.get("/recipe/list", controller.listRecipes); 
 
 
 
