@@ -11,13 +11,21 @@ const {recipeName, setRecipeName} = useState('')
 const {image, setImage} = useState('')
 const {servings, setServings} = useState('')
 
-const recipeNames = () => {
-  Axios.get("/recipe/list", function(error, response, body) {
-    if (!error && response.statusCode == 200) {
-      console.log(body);
-    }
-  })
-}
+const recipeNames = (req,res) => {
+  Axios.get("/recipe/list")
+  .then(() => {
+    console.log(res)
+  }) 
+  }
+
+
+//   Axios.get("/recipe/list", function(error, response, body) {
+
+//     if (!error && response.statusCode == 200) {
+//       console.log(body);
+//     }
+//   })
+// }
 
 // router.get("/recipe/list", controller.listRecipes); 
 
