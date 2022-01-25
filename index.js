@@ -37,10 +37,12 @@ app.use(recipeIngredientRoute);
 let ingredientsRoute = require("./routes/ingredients");
 app.use(ingredientsRoute);
 
-app.use(express.static(path.join(__dirname, "/client/build")));
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'index.html'));
-//  });
+let publicPath = path.join(__dirname, "/client/build")
+
+app.use(express.static(publicPath));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(publicPath, 'index.html'));
+ });
  
 
 // this is not in use anymore
