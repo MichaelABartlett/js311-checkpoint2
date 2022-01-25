@@ -19,7 +19,7 @@ const cors = require('cors')
 let port = process.env.PORT || 5000;
 
 // connect to static content
-app.use(express.static("./public"));
+// app.use(express.static("./public"));
 
 app.use(cors())
 
