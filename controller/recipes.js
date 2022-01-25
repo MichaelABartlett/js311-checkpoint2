@@ -155,7 +155,7 @@ let listRecipes = function(req, res){
 }
 
 
-// ****************************************************************
+// ***************************************************************
 
 // GET/recipe/allNames
 // displays all the recipe names in racipe table
