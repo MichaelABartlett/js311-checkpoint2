@@ -19,6 +19,10 @@ to deploy on Heroku
         username: "motoCodeMan"
         password: "12345"
 
+    user
+        username: "Motoxxman"
+        password: "12345"
+
 
 
 steps I need to do

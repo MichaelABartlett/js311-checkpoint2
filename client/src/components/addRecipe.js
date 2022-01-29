@@ -1,16 +1,40 @@
 import React from 'react'
 import '../Stlyes/addRecipe.css'
 import { useEffect, useState } from 'react'
+import Axios from 'axios'
 
 function AddRecipe(){
 
-    const RecipeName = () => {
-
-    }
     
-    // const RecipeImage = () => {
+const [state, setState] = useState({
+    recipe_name: "",
+    servings: ""
+  })
 
-    // }
+
+
+
+
+  const submit = (e) => {
+    e.preventDefault();
+    console.log('this is state: ', state)
+    Axios.post("/recipe/add", state)
+    .then(res => {
+      console.log('res: ', res)
+      console.log('state.recipe_name: ', state.recipe_name)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+    Axios.get(`/recipe/${state.recipe_name}`)
+    .then(res => {
+        console.log(res.data)
+    })
+    .catch(error => {
+        console.log(error)
+    })
+  }
+  
 
     const IngredientName = () => {
 
@@ -30,18 +54,17 @@ function AddRecipe(){
 
     return(
         <main className='addRecipe'>
-            <h1>Add a new Recipe</h1>
-            <article className='recipeNameImage' >
-                <input type="text" name="recipeName" placeholder='Recipe Name' className='input' onChange={(e) => {
-                    RecipeName(e.target.value)
-                    }}></input>
+           <h1>Adding a New Recipe</h1>
+            <form className='body' onSubmit={submit} id="addRecipeForm">
                 <br/>
-                {/* <br/>
-                <input type="text" name="recipeImage" placeholder='Recipe Image' className='input' onChange={(e) => {
-                    RecipeImage(e.target.value)
-                    }}></input>
-                <br/> */}
-            </article>
+                <input type="text" name="recipe_name" placeholder='Recipe Name' className='input'
+                    onChange={(e) => setState({...state, recipe_name: e.target.value})}></input>
+                    <br/>
+                <input type="text" name="servings" placeholder='Numbers of servings' className='input' 
+                    onChange={(e) => setState({...state, servings: e.target.value})}></input>
+                    <br/>
+                <button type="submit">Submit</button>
+            </form>
             <h1>Recipe Ingredients</h1>
                 <div className='ingredientName' >
                     <input type="text" name="ingredientName" placeholder='Ingredient Name' className='input' onChange={(e) => {

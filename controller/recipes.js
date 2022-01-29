@@ -163,7 +163,7 @@ let getRecipes = function(req, res){
     console.log("GET getRecipes()");
 
     // this is a SQL statement to put all recipe colum in a array
-    let sql = "SELECT recipe_name FROM recipe;"; 
+    let sql = "SELECT recipe_name, id FROM recipe;"; 
 
     db.query(sql, function(error, rows){
         if(error){
@@ -175,13 +175,45 @@ let getRecipes = function(req, res){
             // the map higher order function is taking out the item in the incredient column and pushing it into the ingredientArray
             let recipeArray =
                 rows.map(function(row){
-                    return row.recipe_name;
+                    return row;
                 })
             res.json(recipeArray);
             
         }
     })
 }
+
+// ****************************************************************
+
+// this will list the id of a recipe
+// LIST 
+// GET/recipe/:recipe_name
+
+
+let listRecipeId = function(req, res){
+    console.log("LIST listRecipeId()");
+    
+    let recipe_name = req.params.recipe_name;
+
+
+    let sql = "SELECT id FROM recipe WHERE recipe_name = (?);"; 
+
+    
+
+    db.query(sql, recipe_name, function(error, row){
+        if(error){
+            res.sendStatus(500);
+        } else {
+            console.log("rows: ", row)
+            // returning all the rows in the recipes table
+            res.json(row);
+            }
+        })
+}
+
+
+
+
 
 // ******************************************************************************************
 
@@ -265,4 +297,4 @@ let putRecipe = (req, res) => {
 
 
 // list all the functions that you want to export, this will allow them to be read in other files
-module.exports = { addRecipe, addRecipeInstructionStep , getRecipes, deleteRecipeByRecipe, listRecipes, putRecipe} 
+module.exports = { addRecipe, addRecipeInstructionStep , getRecipes, deleteRecipeByRecipe, listRecipes, putRecipe, listRecipeId} 

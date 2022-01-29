@@ -9,6 +9,19 @@ import { Link } from 'react-router-dom'
 
 function AllRecipeList() {
 
+  const [list, setList] = useState([])
+
+useEffect(() => {
+  Axios.get("/recipe/allNames")
+  .then(res => {
+    console.log(res.data)
+    setList(res.data)
+  }) 
+  .catch(error => {
+    console.log(error)
+  })
+}, []);
+
   let recipe = [
     'Apple Pie',
     'Fried Chicken',
@@ -26,6 +39,10 @@ function AllRecipeList() {
   return (
     <main className="allRecipeList">
       <h1>Recipes</h1>
+      <div className='recipes' >
+        <h1>Recipes</h1>
+        <ul>{list.map(name => <li key={name.recipe_name}>{name.recipe_name}</li>)} </ul> 
+      </div>
       <div className='addNewRecipe' >
         <br/>
           <Link to="/addRecipe">
@@ -36,10 +53,7 @@ function AllRecipeList() {
           
         <br/>
       </div>
-      <div className='recipes' >
-        <h1>List out recipes here</h1>
-        <ul>{recipe.map(name => <li key={name}>{name}</li>)} </ul> 
-      </div>
+      
     </main>
 
   );

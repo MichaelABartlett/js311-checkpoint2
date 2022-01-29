@@ -25,7 +25,8 @@ const db = require("../connection/db");
 // will add a new recipe to our recipes table in the database
 
 // the route, (the folder we are going into)controller.addRecipe(the function we are calling)
-router.post("/recipe/add", auth.checkJwt, controller.addRecipe); 
+//router.post("/recipe/add", auth.checkJwt, controller.addRecipe); 
+router.post("/recipe/add", controller.addRecipe); 
 
 
 // add instruction step to recipe
@@ -52,6 +53,13 @@ router.get("/recipe/list", controller.listRecipes);
 
 // the route, (the folder we are going into)controller.getrecipe(the function we are calling)
 router.get("/recipe/allNames", controller.getRecipes);
+
+// GET
+// GET/recipe_id
+// will get the id of the recipe
+
+// the route, (the folder we are going into)controller.listReipeId(the function we are calling)
+router.get("/recipe/:recipe_name", controller.listRecipeId) 
 
 
 // DELETE
