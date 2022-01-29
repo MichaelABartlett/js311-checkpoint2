@@ -6,27 +6,33 @@ import Axios from 'axios';
 
 function LogIn() {
 
-    const UserName = () => {
+  const [state, setState] = useState({
+    username:"",
+    password: ""
+  })
 
-    }
+  const submit = (e) => {
+    e.preventDefault();
+    console.log('this is the state: ', state);
+    Axios.post("/login", state).then(res => {
+      console.log("made it thru", res)
+    })
+  }
+    
 
-    const Password = () => {
-
-    }
 
   return (
     <main className="logIn">
         <h1>Login</h1>
-            <body className='body'>
+            <form className='body' onSubmit={submit}>
                 <br/>
-            <input type="text" name="userName" placeholder='User Name' className='input' onChange={(e) => {
-                UserName(e.target.value)
-                }}></input>
+            <input type="text" name="username" placeholder='User Name' className='input' 
+                  onChange={(e) => setState({...state, username: e.target.value})}></input>
                 <br/>
-            <input type="text" name="password" placeholder='Password' className='input' onChange={(e) => {
-                Password(e.target.value)
-                }}></input>
-            </body>
+            <input type="text" name="password" placeholder='Password' className='input' 
+                  onChange={(e) => setState({...state, password: e.target.value})}></input>
+              <button type="submit">Submit</button>
+            </form>
 
     </main>
 
@@ -35,19 +41,3 @@ function LogIn() {
 
 export default LogIn;
 
-/* <div>
-        <h1>Adding a New Recipe</h1>
-        <label>recipeName</label>
-        <input type="text" name="recipeName" onChange={(e) => {
-          setRecipeName(e.target.value)
-        }}></input>
-        <label>image</label>
-        <input type="text" name="image" onChange={(e) => {
-          setImage(e.target.value)
-        }}></input>
-        <label>servings</label>
-        <input type="text" name="servings" onChange={(e) => {
-          setServings(e.target.value)
-        }}></input>
-        <button onClick={addRecipe}>Add the new Recipe</button>
-      </div> */
