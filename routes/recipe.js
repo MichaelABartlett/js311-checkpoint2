@@ -1,5 +1,6 @@
 const express = require("express");
 
+
 // this will hold the routes that the application will respond to
 const router = express.Router();
 
@@ -78,6 +79,17 @@ router.delete('/recipe/:id', [auth.checkJwt, auth.isAdmin] , controller.deleteRe
 
 // the route, (the folder we are going into)controller.putRecipe(the function we are calling)
 router.put("/recipe/change", [auth.checkJwt, auth.isAdmin] , controller.putRecipe)
+
+
+// Sending a text
+
+
+
+
+// GET
+// 
+router.get("/recipe/sendText", controller.sendText)
+
 
 // end of recipes ***************************************************
 

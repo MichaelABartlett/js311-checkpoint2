@@ -1,6 +1,8 @@
+
 import '../Stlyes/pickedRecipe.css'
 import React, { useState, useEffect} from "react";
 import Axios from 'axios';
+
 
 
 
@@ -14,6 +16,7 @@ function PickedRecipe() {
   
   const [ingredients, setIngredients] = useState([])
   const [cookTime, setCookTime] = useState({
+    phoneNumber: "",
     date: "",
     time: ""
   })
@@ -59,10 +62,16 @@ function PickedRecipe() {
   })
 }
   
-
 const textIt = (e)=> {
   e.preventDefault();
   console.log('cookTime: ' , cookTime)
+  Axios.get("/recipe/allNames")
+  .then(res => {
+    console.log('got thru Axios to send message', res)
+  })
+  .catch(err => {
+    console.log(err)
+  })
 }
 
 
@@ -84,6 +93,10 @@ const textIt = (e)=> {
       <section className='selectDate' >
         <br/>
         <form className='eachItem' onSubmit={textIt} id='textIt'>
+        <h1>Select Phone Number</h1>
+            <input type="text" name="phoneNumber" placeholder='EX:1234567894' className='input' autoComplete='off'
+            onChange={(e) => setCookTime({...cookTime, phoneNumber: e.target.value})}></input>
+                <br/>
           <h1>Select Cook Date</h1>
             <input type="text" name="selectDate" placeholder='Ex:12/05/2022' className='input' autoComplete='off'
             onChange={(e) => setCookTime({...cookTime, date: e.target.value})}></input>
