@@ -20,8 +20,8 @@ const db = require("../connection/db");
 // POST/recipe_ingredient/add -body {recipe_id: "id of recipe", ingredient_id: "id of ingredient"}
 // will add a new ingredient to our recipe_ingredient table in the database
 
-router.post("/recipe_ingredient/add", auth.checkJwt, controller.addRecipeIngredient); 
-
+//router.post("/recipe_ingredient/add", auth.checkJwt, controller.addRecipeIngredient); 
+router.post("/recipe_ingredient/add", controller.addRecipeIngredient); 
 
 // LIST   
 // GET/recipe_ingredient/list   there is no body, we are just requesting the entire recipe_ingredient table

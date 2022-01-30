@@ -36,7 +36,8 @@ router.post("/recipe/add", controller.addRecipe);
 // will add a new recipe to our recipes table in the database
 
 // the route, (the folder we are going into)controller.addRecipe(the function we are calling)
-router.post("/recipe/addRecipeInstructionStep", auth.checkJwt, controller.addRecipeInstructionStep); 
+//router.post("/recipe/addRecipeInstructionStep", auth.checkJwt, controller.addRecipeInstructionStep); 
+router.post("/recipe/addRecipeInstructionStep", controller.addRecipeInstructionStep); 
 
 
 // LIST   
@@ -60,6 +61,7 @@ router.get("/recipe/allNames", controller.getRecipes);
 
 // the route, (the folder we are going into)controller.listReipeId(the function we are calling)
 router.get("/recipe/:recipe_name", controller.listRecipeId) 
+
 
 
 // DELETE

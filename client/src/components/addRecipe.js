@@ -11,11 +11,27 @@ const [state, setState] = useState({
     servings: ""
   })
 
+  const [ingredient, setIngredient] = useState({
+    recipe_id: "",
+    ingredient: "",
+    prep_time: "",
+    prep_instruction: ""
+    })
+
+// POST/recipe_ingredient/add
+
+// Below is the layout of the object that will be getting added
+    /**
+     * { 
+     * "recipe_id": "id of recipe to be added",
+     * "ingredient": "ingredient to be added",
+     * "prep_time": "how long to prep ingredient",
+     * "prep_instruction": "instruction on how to prep item"
+     * }
+     */
 
 
-
-
-  const submit = (e) => {
+  const submit = async(e) => {
     e.preventDefault();
     console.log('this is state: ', state)
     Axios.post("/recipe/add", state)
@@ -26,9 +42,11 @@ const [state, setState] = useState({
     .catch(error => {
       console.log(error)
     })
-    Axios.get(`/recipe/${state.recipe_name}`)
+    await Axios.get(`/recipe/${state.recipe_name}`)
     .then(res => {
-        console.log(res.data)
+        console.log('recipe_id: ' ,res.data[0].id)
+        setIngredient({...ingredient, recipe_id: res.data[0].id})
+       // console.log('recipe_id: ', ingredient.recipe_id )
     })
     .catch(error => {
         console.log(error)
@@ -36,10 +54,22 @@ const [state, setState] = useState({
   }
   
 
-    const IngredientName = () => {
+  const addIngredient = (e) => {
+    e.preventDefault();
+    console.log('recipe_id in ingredient: ', ingredient.recipe_id )
+    Axios.post("/recipe_ingredient/add", ingredient)
+    .then(res => {
+        console.log('res in ingredient: ', res)
+        console.log('instruction added')
+    })
+    .catch(error => {
+        console.log(error)
+    })
+    document.getElementById("addIngredient").reset();
+  }
 
-    }
 
+  //****************** */
     const PrepInstruction = () => {
 
     }
@@ -66,27 +96,22 @@ const [state, setState] = useState({
                 <button type="submit">Submit</button>
             </form>
             <h1>Recipe Ingredients</h1>
-                <div className='ingredientName' >
-                    <input type="text" name="ingredientName" placeholder='Ingredient Name' className='input' onChange={(e) => {
-                        IngredientName(e.target.value)
-                        }}></input>
+            
+                <form className='body' onSubmit={addIngredient} id='addIngredient'>
+                    <input type="text" name="ingredient" placeholder='Ingredient Name' className='input'
+                     onChange={(e) => setIngredient({...ingredient, ingredient: e.target.value})}></input>
                         <br/>
                         <br/>
-                    <input type="text" name="prepInstruction" placeholder='Preperation instruction if needed' className='input' onChange={(e) => {
-                        PrepInstruction(e.target.value)
-                        }}></input>
+                    <input type="text" name="prep_time" placeholder='Preperation time if needed' className='input' 
+                    onChange={(e) => setIngredient({...ingredient, prep_time: e.target.value})}></input>
                         <br/>
                         <br/>
-                    <input type="text" name="prepTime" placeholder='Prep Time if needed' className='input' onChange={(e) => {
-                        PrepTime(e.target.value)
-                        }}></input>
+                    <input type="text" name="prep_instruction" placeholder='Prep instruction if needed' className='input' 
+                    onChange={(e) => setIngredient({...ingredient, prep_instruction: e.target.value})}></input>
                         <br/>
-                        <br/>
-                    <input type="text" name="addAnotherIngredient" placeholder='Add Another Ingredient' className='input' onChange={(e) => {
-                        PrepTime(e.target.value)
-                        }}></input>
-                        <br/>
-                </div>
+                        <p>Only one ingredient can be added at a time</p>
+                    <button type='submit'>Submit</button>
+                </form>
             <h1>Recipe Instructions</h1>
                 <div className='instructions' >
                     <input type="text" name="recipeInstruction" placeholder='Recipe Instruction Step' className='input' onChange={(e) => {
