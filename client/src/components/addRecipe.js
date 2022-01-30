@@ -18,18 +18,10 @@ const [state, setState] = useState({
     prep_instruction: ""
     })
 
-// POST/recipe_ingredient/add
-
-// Below is the layout of the object that will be getting added
-    /**
-     * { 
-     * "recipe_id": "id of recipe to be added",
-     * "ingredient": "ingredient to be added",
-     * "prep_time": "how long to prep ingredient",
-     * "prep_instruction": "instruction on how to prep item"
-     * }
-     */
-
+    const [recipeInstruction, setRecipeInstruction] = useState({
+        recipe_id: "",
+        instruction: ""
+    })
 
   const submit = async(e) => {
     e.preventDefault();
@@ -44,8 +36,9 @@ const [state, setState] = useState({
     })
     await Axios.get(`/recipe/${state.recipe_name}`)
     .then(res => {
-        console.log('recipe_id: ' ,res.data[0].id)
+        //console.log('recipe_id: ' ,res.data[0].id)
         setIngredient({...ingredient, recipe_id: res.data[0].id})
+        setRecipeInstruction({...recipeInstruction, recipe_id: res.data[0].id})
        // console.log('recipe_id: ', ingredient.recipe_id )
     })
     .catch(error => {
@@ -60,7 +53,7 @@ const [state, setState] = useState({
     Axios.post("/recipe_ingredient/add", ingredient)
     .then(res => {
         console.log('res in ingredient: ', res)
-        console.log('instruction added')
+        console.log('ingredient added')
     })
     .catch(error => {
         console.log(error)
@@ -69,13 +62,22 @@ const [state, setState] = useState({
   }
 
 
+  const AddRecipeInstruction = (e) => {
+      e.preventDefault();
+      
+    Axios.post("/recipe/addRecipeInstructionStep", recipeInstruction)
+    .then(res => {
+        console.log('recipe instruction added')
+    })
+    .catch(error => {
+        console.log(error)
+    })
+    document.getElementById("addInstruction").reset();
+  }
+
   //****************** */
     const PrepInstruction = () => {
 
-    }
-
-    const PrepTime = () => {
-        
     }
 
     const RecipeInstruction = () => {
@@ -86,7 +88,6 @@ const [state, setState] = useState({
         <main className='addRecipe'>
            <h1>Adding a New Recipe</h1>
             <form className='body' onSubmit={submit} id="addRecipeForm">
-                <br/>
                 <input type="text" name="recipe_name" placeholder='Recipe Name' className='input'
                     onChange={(e) => setState({...state, recipe_name: e.target.value})}></input>
                     <br/>
@@ -96,15 +97,12 @@ const [state, setState] = useState({
                 <button type="submit">Submit</button>
             </form>
             <h1>Recipe Ingredients</h1>
-            
                 <form className='body' onSubmit={addIngredient} id='addIngredient'>
                     <input type="text" name="ingredient" placeholder='Ingredient Name' className='input'
                      onChange={(e) => setIngredient({...ingredient, ingredient: e.target.value})}></input>
                         <br/>
-                        <br/>
                     <input type="text" name="prep_time" placeholder='Preperation time if needed' className='input' 
                     onChange={(e) => setIngredient({...ingredient, prep_time: e.target.value})}></input>
-                        <br/>
                         <br/>
                     <input type="text" name="prep_instruction" placeholder='Prep instruction if needed' className='input' 
                     onChange={(e) => setIngredient({...ingredient, prep_instruction: e.target.value})}></input>
@@ -113,19 +111,14 @@ const [state, setState] = useState({
                     <button type='submit'>Submit</button>
                 </form>
             <h1>Recipe Instructions</h1>
-                <div className='instructions' >
-                    <input type="text" name="recipeInstruction" placeholder='Recipe Instruction Step' className='input' onChange={(e) => {
-                        RecipeInstruction(e.target.value)
-                        }}></input>
+                <form className='body' onSubmit={AddRecipeInstruction} id='addInstruction' >
+                    <input type="text" name="recipeInstruction" placeholder='Recipe Instruction Step' className='input' 
+                    onChange={(e) => setRecipeInstruction({...recipeInstruction, instruction: e.target.value})}></input>
                         <br/>
-                        <br/>
-                    <input type="text" name="addAnotherInstruction" placeholder='Add another instruction step' className='input' onChange={(e) => {
-                        PrepInstruction(e.target.value)
-                        }}></input>
-                        <br/>
-                        <br/>
+                        <p>Only one instruction step can be added at a time</p>
+                    <button type='submit'>Submit</button>
                     
-                </div>
+                </form>
         </main>
     )
 }

@@ -22,23 +22,10 @@ useEffect(() => {
   })
 }, []);
 
-  let recipe = [
-    'Apple Pie',
-    'Fried Chicken',
-    'Baked Potato',
-    'PBJ',
-    'Hot Dog'
-  ]
-
   // onload a call for a list of all recipe names and added to the recipe variable
-
-  const AddNewRecipe = () => {
-
-  }
 
   return (
     <main className="allRecipeList">
-      <h1>Recipes</h1>
       <div className='recipes' >
         <h1>Recipes</h1>
         <ul>{list.map(name => <li key={name.recipe_name}>{name.recipe_name}</li>)} </ul> 
