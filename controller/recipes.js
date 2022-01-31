@@ -2,8 +2,8 @@
 
 const db = require('../connection/db');
 
-const cors = require('cors');
-const twilio = require('twilio');
+// const cors = require('cors');
+// const twilio = require('twilio');
 
 
 let mysql = require("mysql");
@@ -300,25 +300,25 @@ let putRecipe = (req, res) => {
 // send a text message
 
 // Sending a text
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client = new twilio(accountSid, authToken);
+// const accountSid = process.env.TWILIO_ACCOUNT_SID;
+// const authToken = process.env.TWILIO_AUTH_TOKEN;
+// const client = new twilio(accountSid, authToken);
 
-let sendText = (req,res) => {
-    console.log('inside sendText in backend')
-    // GET variables, passed via query string
+// let sendText = (req,res) => {
+//     console.log('inside sendText in backend')
+//     // GET variables, passed via query string
 
-    //const { phoneNumber, textmessage} = req.query
-    const phoneNumber = req.query.phoneNumber
-    const textmessage = req.query.textmessage
+//     //const { phoneNumber, textmessage} = req.query
+//     const phoneNumber = req.query.phoneNumber
+//     const textmessage = req.query.textmessage
 
 
-    client.message.create({
-        body: "this is a test and only a test",
-        to: "+15129147308",
-        from: '+17754069709' // phone number from Twilio
-    }).then((message) => console.log(message.body))
-}
+//     client.message.create({
+//         body: "this is a test and only a test",
+//         to: "+15129147308",
+//         from: '+17754069709' // phone number from Twilio
+//     }).then((message) => console.log(message.body))
+// }
 
 
 // end of recipes ******************************************************************************************
@@ -326,4 +326,4 @@ let sendText = (req,res) => {
 
 
 // list all the functions that you want to export, this will allow them to be read in other files
-module.exports = { addRecipe, addRecipeInstructionStep , getRecipes, deleteRecipeByRecipe, listRecipes, putRecipe, listRecipeId, sendText} 
+module.exports = { addRecipe, addRecipeInstructionStep , getRecipes, deleteRecipeByRecipe, listRecipes, putRecipe, listRecipeId} 

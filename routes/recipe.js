@@ -1,9 +1,9 @@
 const express = require("express");
 
-const cors = require('cors');
-const twilio = require('twilio');
+// const cors = require('cors');
+// const twilio = require('twilio');
 
-require("dotenv").config(); // it does not need to be a variable
+// require("dotenv").config(); // it does not need to be a variable
 
 // this will hold the routes that the application will respond to
 const router = express.Router();
@@ -87,15 +87,15 @@ router.put("/recipe/change", [auth.checkJwt, auth.isAdmin] , controller.putRecip
 
 // Sending a text
 
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client = new twilio(accountSid, authToken);
+// const accountSid = process.env.TWILIO_ACCOUNT_SID;
+// const authToken = process.env.TWILIO_AUTH_TOKEN;
+// const client = new twilio(accountSid, authToken);
 
 
 
-// GET
-// 
-router.get("/recipe/sendText", controller.sendText)
+// // GET
+// // 
+// router.get("/recipe/sendText", controller.sendText)
 
 
 // end of recipes ***************************************************
