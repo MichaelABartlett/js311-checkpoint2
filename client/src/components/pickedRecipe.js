@@ -65,13 +65,13 @@ function PickedRecipe() {
 const textIt = (e)=> {
   e.preventDefault();
   console.log('cookTime: ' , cookTime)
-  Axios.get("/recipe/allNames")
-  .then(res => {
-    console.log('got thru Axios to send message', res)
-  })
-  .catch(err => {
-    console.log(err)
-  })
+  // Axios.get("/recipe/allNames")
+  // .then(res => {
+  //   console.log('got thru Axios to send message', res)
+  // })
+  // .catch(err => {
+  //   console.log(err)
+  // })
 }
 
 
