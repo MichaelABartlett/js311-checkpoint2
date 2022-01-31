@@ -302,22 +302,22 @@ let putRecipe = (req, res) => {
 // Sending a text
 const accountSid = process.env.accountSid;
 const authToken = process.env.authToken;
-const client = require('twilio')(accountSid, authToken);
+const client = new twilio(accountSid, authToken);
 
 let sendText = (req,res) => {
     console.log('inside sendText in backend')
     // GET variables, passed via query string
 
     //const { phoneNumber, textmessage} = req.query
-    // const phoneNumber = req.query.phoneNumber
-    // const textmessage = req.query.textmessage
+    const phoneNumber = req.query.phoneNumber
+    const textmessage = req.query.textmessage
 
 
-    // client.message.create({
-    //     body: "this is a test and only a test",
-    //     to: "+15129147308",
-    //     from: '+17754069709' // phone number from Twilio
-    // }).then((message) => console.log(message.body))
+    client.message.create({
+        body: "this is a test and only a test",
+        to: "+15129147308",
+        from: '+17754069709' // phone number from Twilio
+    }).then((message) => console.log(message.body))
 }
 
 
