@@ -1,5 +1,7 @@
 const express = require("express");
 
+const cors = require('cors');
+const twilio = require('twilio');
 
 // this will hold the routes that the application will respond to
 const router = express.Router();
@@ -83,6 +85,9 @@ router.put("/recipe/change", [auth.checkJwt, auth.isAdmin] , controller.putRecip
 
 // Sending a text
 
+const accountSid = process.env.accountSid;
+const authToken = process.env.authToken;
+const client = new twilio(accountSid, authToken);
 
 
 
