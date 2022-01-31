@@ -85,8 +85,8 @@ router.put("/recipe/change", [auth.checkJwt, auth.isAdmin] , controller.putRecip
 
 // Sending a text
 
-const accountSid = process.env.accountSid;
-const authToken = process.env.authToken;
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = new twilio(accountSid, authToken);
 
 
