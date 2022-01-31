@@ -2,8 +2,8 @@
 
 const db = require('../connection/db');
 
-// const cors = require('cors');
-// const twilio = require('twilio');
+const cors = require('cors');
+const twilio = require('twilio');
 
 
 let mysql = require("mysql");
