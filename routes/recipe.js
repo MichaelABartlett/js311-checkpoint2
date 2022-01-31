@@ -3,6 +3,8 @@ const express = require("express");
 const cors = require('cors');
 const twilio = require('twilio');
 
+require("dotenv").config(); // it does not need to be a variable
+
 // this will hold the routes that the application will respond to
 const router = express.Router();
 
