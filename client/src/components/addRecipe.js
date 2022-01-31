@@ -76,13 +76,7 @@ const [state, setState] = useState({
   }
 
   //****************** */
-    const PrepInstruction = () => {
-
-    }
-
-    const RecipeInstruction = () => {
-
-    }
+ 
 
     return(
         <main className='addRecipe'>
