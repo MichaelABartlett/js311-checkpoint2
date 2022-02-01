@@ -28,6 +28,7 @@ let checkJwt = (req, res, next) => {
 
     // read the token from the header
     let token;
+    console.log('req.headers: ', req.headers)
     if(req.headers.authorization) {
         let bearer = req.headers.authorization.split(" ");
         token = bearer[1];
@@ -50,7 +51,7 @@ let checkJwt = (req, res, next) => {
         
         // the token is valid, store the username from the token in the request, so that it is
         // available to all following this call
-        console.log(decoded);
+        console.log('decoded: ',decoded);
         req.username = decoded.username;
         req.isAdmin = decoded.role == 'admin'
         // call the next middleware function in the chain

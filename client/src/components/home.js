@@ -20,12 +20,12 @@ function Home() {
                 }}></input> */}
         <h1>Don't let this be you!!</h1>
         <section className='images'>
-          <div class="hungryKid">
+          <div className="hungryKid">
               <div>
                 <img src={hungryKid} alt="Image of guy thinking" height={200} width={300}/>
               </div>  
           </div>
-          <div class="hungryKid">
+          <div className="hungryKid">
               <div>
                 <img src={frozenChicken} alt="Image of prozen chicken" height={200} width={300}/>
               </div>  

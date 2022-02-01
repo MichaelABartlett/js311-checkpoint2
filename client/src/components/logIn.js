@@ -18,8 +18,12 @@ function LogIn() {
     Axios.post("/login", state)
     .then(res => {
       console.log("made it thru", res.data)
-      //process.env.jwtSecret = res.data;
-      console.log(process.env.jwtSecret)
+      console.log("made it thru", res)
+      console.log('jwt', process.env.jwtSecret)
+      localStorage.setItem('name', state.username)
+      document.cookie = "loggedIn=true;max-age=1000"
+      console.log('document.cookie: ', document.cookie)
+      window.location.replace("/")
     })
     .catch(error => {
       console.log(error)
