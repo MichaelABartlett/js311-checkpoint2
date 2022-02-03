@@ -326,4 +326,4 @@ let putRecipe = (req, res) => {
 
 
 // list all the functions that you want to export, this will allow them to be read in other files
-module.exports = { addRecipe, addRecipeInstructionStep , getRecipes, deleteRecipeByRecipe, listRecipes, putRecipe, listRecipeId, sendText} 
+module.exports = { addRecipe, addRecipeInstructionStep , getRecipes, deleteRecipeByRecipe, listRecipes, putRecipe, listRecipeId} 

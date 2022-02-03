@@ -62,10 +62,10 @@ function PickedRecipe() {
   })
 }
   
-const textIt = () => {
-  fetch(`/recipe/sendText?recipient=${cookTime.phoneNumber}&textmessage=${cookTime.date}`)
-  .catch(err => console.log(err))
-}
+// const textIt = () => {
+//   fetch(`/recipe/sendText?recipient=${cookTime.phoneNumber}&textmessage=${cookTime.date}`)
+//   .catch(err => console.log(err))
+// }
 
 // const textIt = (e)=> {
 //   e.preventDefault();
