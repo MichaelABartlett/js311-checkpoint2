@@ -16,7 +16,7 @@
   "author": "Michael Bartlett",
   "license": "ISC",
   "devDependencies": {
-    "mini-css-extract-plugin": "^2.4.5"
+    "mini-css-extract-plugin": "2.4.5"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
