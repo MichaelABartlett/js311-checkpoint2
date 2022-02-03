@@ -69,7 +69,7 @@ function PickedRecipe() {
 const textIt = (e)=> {
   e.preventDefault();
   console.log('cookTime: ' , cookTime)
-  Axios.get("/recipe/sendText")
+  Axios.get("/recipe/sendTex")
   .then(res => {
     console.log('got thru Axios to send message', res)
   })
