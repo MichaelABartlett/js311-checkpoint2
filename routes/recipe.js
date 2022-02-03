@@ -95,7 +95,7 @@ router.put("/recipe/change", [auth.checkJwt, auth.isAdmin] , controller.putRecip
 
 // // GET
 // // 
-router.get("/recipe/sendText", controller.sendText)
+// router.get("/recipe/sendText", controller.sendText)
 
 
 // end of recipes ***************************************************
