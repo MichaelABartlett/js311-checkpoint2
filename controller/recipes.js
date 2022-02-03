@@ -307,6 +307,7 @@ let putRecipe = (req, res) => {
 
 let sendText = (req,res) => {
     console.log('inside sendText in backend');
+    res.status(201).send("instid the sendText function");
 }
 //     // GET variables, passed via query string
 
