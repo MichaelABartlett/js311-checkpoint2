@@ -62,21 +62,21 @@ function PickedRecipe() {
   })
 }
   
-const textIt = () => {
+// const textIt = () => {
  
-}
-
-// const textIt = (e)=> {
-//   e.preventDefault();
-//   console.log('cookTime: ' , cookTime)
-//   Axios.get("/recipe/sendText")
-//   .then(res => {
-//     console.log('got thru Axios to send message', res)
-//   })
-//   .catch(err => {
-//     console.log(err)
-//   })
 // }
+
+const textIt = (e)=> {
+  e.preventDefault();
+  console.log('cookTime: ' , cookTime)
+  Axios.get("/recipe/sendText")
+  .then(res => {
+    console.log('got thru Axios to send message', res)
+  })
+  .catch(err => {
+    console.log(err)
+  })
+}
 
 
   return (

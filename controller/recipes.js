@@ -305,8 +305,9 @@ let putRecipe = (req, res) => {
 // const authToken = process.env.TWILIO_AUTH_TOKEN;
 // const client = new twilio(accountSid, authToken);
 
-// let sendText = (req,res) => {
-//     console.log('inside sendText in backend')
+let sendText = (req,res) => {
+    console.log('inside sendText in backend');
+}
 //     // GET variables, passed via query string
 
 //     //const { phoneNumber, textmessage} = req.query
@@ -327,4 +328,4 @@ let putRecipe = (req, res) => {
 
 
 // list all the functions that you want to export, this will allow them to be read in other files
-module.exports = { addRecipe, addRecipeInstructionStep , getRecipes, deleteRecipeByRecipe, listRecipes, putRecipe, listRecipeId} 
+module.exports = { addRecipe, addRecipeInstructionStep , getRecipes, deleteRecipeByRecipe, listRecipes, putRecipe, listRecipeId, sendText} 
