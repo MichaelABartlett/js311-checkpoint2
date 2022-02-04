@@ -35,6 +35,10 @@ function PickedRecipe() {
     })
   }, []);
 
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve,ms))
+  }
+
   const submit = (e) => {
     e.preventDefault();
     console.log('state: ', state.recipename)
@@ -42,19 +46,15 @@ function PickedRecipe() {
     
     .then(res => {
       console.log('recipe_id: ' ,res.data[0].id)
+      sleep(8000);
       console.log('res: ', res)
       setState({...state, recipeId: res.data[0].id})
       //setRecipeInstruction({...recipeInstruction, recipe_id: res.data[0].id})
      //console.log('recipe_id: ', state.recipeId )
-    
   })
-
   .catch(error => {
       console.log(error)
   })
-}
-
-const submit2 = () => {
   Axios.get(`/recipe_ingredient/${state.recipeId}`)
   .then(res => {
     console.log('res in recipe_ingredient:' , res)
@@ -94,7 +94,7 @@ const submit2 = () => {
                   <br/>
               <button type="submit">Submit</button>
             </form>
-            <button onClick={submit2}>Submit2</button>
+            {/* <button onClick={submit2}>Submit2</button> */}
       </div>
       <h1>Selected Recipe</h1>
       <h2>{state.recipename}</h2>
