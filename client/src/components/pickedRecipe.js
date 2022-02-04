@@ -45,7 +45,7 @@ function PickedRecipe() {
       console.log('res: ', res)
       setState({...state, recipeId: res.data[0].id})
       //setRecipeInstruction({...recipeInstruction, recipe_id: res.data[0].id})
-     console.log('recipe_id: ', state.recipeId )
+     //console.log('recipe_id: ', state.recipeId )
     
   })
 
@@ -60,23 +60,23 @@ function PickedRecipe() {
   .catch(error => {
     console.log(error)
   })
-}
+  }
   
-// const textIt = () => {
- 
-// }
+  // const textIt = () => {
+  
+  // }
 
-const textIt = (e)=> {
-  e.preventDefault();
-  console.log('cookTime: ' , cookTime)
-  Axios.get("/recipe/sendTex")
-  .then(res => {
-    console.log('got thru Axios to send message', res)
-  })
-  .catch(err => {
-    console.log(err)
-  })
-}
+  const textIt = (e)=> {
+    e.preventDefault();
+    // console.log('cookTime: ' , cookTime)
+    Axios.get("/recipe/sendText")
+    .then(res => {
+      console.log('got thru Axios to send message', res)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
 
 
   return (
@@ -110,6 +110,7 @@ const textIt = (e)=> {
             onChange={(e) => setCookTime({...cookTime, time: e.target.value})}></input>
                 <br/>
                 <button type="submit">Submit</button>
+                <button onClick={textIt}>sendText</button>
         </form>
       </section>
       <h1>All of Recipe Information</h1>
