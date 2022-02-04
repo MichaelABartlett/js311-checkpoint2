@@ -41,11 +41,11 @@ function PickedRecipe() {
     Axios.get(`/recipe/${state.recipename}`)
     
     .then(res => {
-      //console.log('recipe_id: ' ,res.data[0].id)
+      console.log('recipe_id: ' ,res.data[0].id)
       console.log('res: ', res)
       setState({...state, recipeId: res.data[0].id})
       //setRecipeInstruction({...recipeInstruction, recipe_id: res.data[0].id})
-     //console.log('recipe_id: ', state.recipeId )
+     console.log('recipe_id: ', state.recipeId )
     
   })
 
