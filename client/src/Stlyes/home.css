@@ -1,20 +1,14 @@
 
-.logIn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 150px;
-    flex-direction: column;
-    
-  }
+.home {
+    margin-top: 5px;
 
-.body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 25px;
-    flex-direction: column;
-    width: 300px;
+    width: 90%;
+}
+
+.title {
+    font-size: 100px;
+    margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 .input {
@@ -28,3 +22,26 @@
     flex-direction: row;
 }
   
+.title {
+    display: flex;
+    justify-content: center;
+}
+.explain {
+    display: flex;
+    justify-content: center;
+}
+.dontLet {
+    display: flex;
+    justify-content: center;
+}
+
+.hungryKid {
+    padding-right: 50px;
+    text-align: center;
+
+}
+
+.frozenFood {
+    padding-left: 50px;
+    text-align: center;
+}

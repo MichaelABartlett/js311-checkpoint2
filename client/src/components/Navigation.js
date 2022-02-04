@@ -22,7 +22,7 @@ const Navigation = (props) => {
         <AppBar position='relative'>
             <Toolbar>
             <Typography variant="h6" style={{ flexGrow: "1" }}>
-                    Recipe Prep
+                    Cooking Prep
                 </Typography>
                 <ul className="nav-list" >
                     <li className="navItem">
@@ -35,16 +35,16 @@ const Navigation = (props) => {
                         <Link style={{color: "white", textDecoration: 'none'}} to="/allRecipeList">All Recipe List</Link>
                     </li>
                     <li className="navItem">
-                        <Link style={{color: "white", textDecoration: 'none'}} to="/pickedRecipe">{cookies.loggedIn ? "Picked Recipe" : ""}</Link>
+                        <Link style={{color: "white", textDecoration: 'none'}} to="/pickedRecipe">{cookies.loggedIn ? "Picked Recipe" : ''}</Link>
                     </li>
                     <li className="navItem">
-                        <Link style={{color: "white", textDecoration: 'none'}} to="/addRecipe">{cookies.loggedIn ? "Add Recipe" : ""}</Link>
+                        <Link style={{color: "white", textDecoration: 'none'}} to="/addRecipe">{cookies.loggedIn ? "Add Recipe" : ''}</Link>
                     </li>
                     {/* <li className="navItem">
                         <Link style={{color: "white", textDecoration: 'none'}} to="/calender">Calender</Link>
                     </li> */}
                     <li className="navItem">
-                        <Link style={{color: "white", textDecoration: 'none'}} to="/createProfile">Create Profile</Link>
+                        <Link style={{color: "white", textDecoration: 'none'}} to="/createProfile">{cookies.loggedIn ? "Create Profile" : ''}</Link>
                     </li>
                     <li className="navItem">
                         <Link style={{color: "white", textDecoration: 'none'}} to="/logIn">{!cookies.loggedIn ? "Log In" : ""}</Link>

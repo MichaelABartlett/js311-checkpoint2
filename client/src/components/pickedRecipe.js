@@ -88,7 +88,7 @@ function PickedRecipe() {
     <div className="pickedRecipe">
        <div className='recipes' >
         <h1>Recipes you can pick from</h1>
-        <ul>{list.map(name => <li key={name.recipe_name}>{name.recipe_name}</li>)} </ul> 
+        <ul className='pickList'>{list.map(name => <li key={name.recipe_name}>{name.recipe_name}</li>)} </ul> 
         <form className='body' onSubmit={submit} id="pickRecipe">
                 <br/>
             <input type="text" name="recipename" placeholder='Enter Recipe Name' className='input' autoComplete='off'
@@ -101,8 +101,9 @@ function PickedRecipe() {
       <h2>{state.recipename}</h2>
       <div className='buildList'>
           <p>Now that you have selected a recipe to cook let's build the list that will remind you to PREP the ingredients so you will be ready to cook.</p>
-            <button onClick={submit2}>Build you list</button>
+            
         </div>
+        <button onClick={submit2}>Build you list</button>
         <h1>Recipe Information</h1>
         <section className='listing'>
           <div className='listingItem'>
