@@ -38,3 +38,24 @@
     padding-right: 50px;
 }
   
+.listing {
+    display: flex;
+    flex-direction: row;
+}
+
+.listingItem {
+    display: flex;
+    flex-direction: column;
+}
+
+.listTitle {
+    display: flex;
+    justify-content: center;
+}
+
+.listingCenter {
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+    padding-right: 50px;
+}

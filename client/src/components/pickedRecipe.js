@@ -55,6 +55,8 @@ function PickedRecipe() {
   .catch(error => {
       console.log(error)
   })
+}
+  const submit2 = () => {
   Axios.get(`/recipe_ingredient/${state.recipeId}`)
   .then(res => {
     console.log('res in recipe_ingredient:' , res)
@@ -93,11 +95,29 @@ function PickedRecipe() {
                   onChange={(e) => setState({...state, recipename: e.target.value})}></input>
                   <br/>
               <button type="submit">Submit</button>
-            </form>
-            {/* <button onClick={submit2}>Submit2</button> */}
+        </form>
       </div>
       <h1>Selected Recipe</h1>
       <h2>{state.recipename}</h2>
+      <div className='buildList'>
+          <p>Now that you have selected a recipe to cook let's build the list that will remind you to PREP the ingredients so you will be ready to cook.</p>
+            <button onClick={submit2}>Build you list</button>
+        </div>
+        <h1>Recipe Information</h1>
+        <section className='listing'>
+          <div className='listingItem'>
+            <h3 className='listTitle'>Ingredients</h3>
+          <ul>{ingredients.map(listIngredients => <li key={listIngredients.ingredient}>{listIngredients.ingredient}</li>)}</ul>
+          </div>
+          <div className='listingCenter'>
+            <h3 className='listTitle'>Prep Time</h3>
+          <ul>{ingredients.map(listTime => <li key={listTime.ingredient}>{listTime.prep_time }</li>)}</ul>
+          </div>
+          <div className='listingItem'>
+            <h3 className='listTitle'>Prep Instructions</h3>
+          <ul>{ingredients.map(listInstruction => <li key={listInstruction.ingredient}>{listInstruction.prep_instruction}</li>)}</ul>
+          </div>
+        </section>
       <section className='selectDate' >
         <br/>
         <form className='eachItem' onSubmit={textIt} id='textIt'>
@@ -117,13 +137,7 @@ function PickedRecipe() {
                 <button onClick={textIt}>sendText</button>
         </form>
       </section>
-      <h1>All of Recipe Information</h1>
-            <h3>Ingredients</h3>
-          <ul>{ingredients.map(listIngredients => <li key={listIngredients.ingredient}>{listIngredients.ingredient}</li>)}</ul>
-            <h3>Prep Time</h3>
-          <ul>{ingredients.map(listIngredients => <li key={listIngredients.ingredient}>{listIngredients.prep_time}</li>)}</ul>
-            <h3>Prep Instructions</h3>
-          <ul>{ingredients.map(listIngredients => <li key={listIngredients.ingredient}>{listIngredients.prep_instruction}</li>)}</ul>
+      
     </div>
 
 
