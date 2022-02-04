@@ -1,9 +1,8 @@
 import React from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
-import Work from './components/addRecipe'
-import Navigation from './components/Navigation';
+//import Navigation from './components/Navigation';
 import cookie from 'cookie'
-import Testing from './components/testing';
+//import Testing from './components/testing';
 import LogIn from './components/logIn';
 import Home from './components/home';
 import HowItWorks from './components/howItWorks';
@@ -37,14 +36,12 @@ const Router = () => {
             <Route exact path="/" element={<Home />}/>
             <Route path="/addRecipe" element={ <AddRecipe />}/>
             <Route path="/logIn" element={ <LogIn />} />
-            {/* <Route path="/home" element={<Home />}/> */}
+            <Route path="/home" element={<Home />}/>
             <Route path="/howItWorks" element={<HowItWorks />}/>
             <Route path="/calender" element={<Calender />}/>
             <Route path="/allRecipeList" element={<AllRecipeList />}/>
             <Route path="/pickedRecipe" element={<PickedRecipe />}/>
             <Route path="/createProfile" element={<CreateProfile />}/>
-            {/* <ProtectedRoute path="/admin-view" component={AdminView} /> */}
-            {/* <Route path="/singleListing/:id" component={BizDetails} /> */}
         </Routes>
     );
 };
