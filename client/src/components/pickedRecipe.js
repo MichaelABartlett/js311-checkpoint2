@@ -35,9 +35,6 @@ function PickedRecipe() {
     })
   }, []);
 
-  function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve,ms))
-  }
 
   const submit = (e) => {
     e.preventDefault();
@@ -46,7 +43,6 @@ function PickedRecipe() {
     
     .then(res => {
       console.log('recipe_id: ' ,res.data[0].id)
-      sleep(8000);
       console.log('res: ', res)
       setState({...state, recipeId: res.data[0].id})
       //setRecipeInstruction({...recipeInstruction, recipe_id: res.data[0].id})
@@ -56,6 +52,7 @@ function PickedRecipe() {
       console.log(error)
   })
 }
+
   const submit2 = () => {
   Axios.get(`/recipe_ingredient/${state.recipeId}`)
   .then(res => {
@@ -83,6 +80,16 @@ function PickedRecipe() {
     })
   }
 
+  const text = (e) => {
+    e.preventDefault();
+    Axios.get("/recipe/text")
+    .then(res => {
+      console.log('in the text axios call')
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
 
   return (
     <div className="pickedRecipe">
@@ -135,10 +142,9 @@ function PickedRecipe() {
             onChange={(e) => setCookTime({...cookTime, time: e.target.value})}></input>
                 <br/>
                 <button type="submit">Submit</button>
-                <button onClick={textIt}>sendText</button>
+                <button onClick={text}>sendText</button>
         </form>
       </section>
-      
     </div>
 
 

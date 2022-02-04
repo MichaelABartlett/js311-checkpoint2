@@ -20,13 +20,13 @@ function Home() {
           <div className="hungryKid">
               <div>
                 <h1>Your hungry family</h1>
-                <img src={hungryKid} alt="Image of guy thinking" height={200} width={300}/>
+                <img src={hungryKid} alt="Hungry Kid" height={300} width={450}/>
               </div>  
           </div>
           <div className="frozenFood">
               <div>
-                <h1>Your frozen food</h1>
-                <img src={frozenChicken} alt="Image of prozen chicken" height={200} width={300}/>
+                <h1>The food you should be cooking</h1>
+                <img src={frozenChicken} alt="Frozen Chicken" height={300} width={450}/>
               </div>  
           </div>
         </section>

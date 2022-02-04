@@ -1,6 +1,5 @@
 import '../Stlyes/howItWorks.css'
-import React, { useState, useEffect} from "react";
-import Axios from 'axios';
+import React from "react";
 
 
 
@@ -11,7 +10,7 @@ function HowItWorks() {
     <div className="howItWorks">
       <h1>How it works</h1>
       <h2>Where you are helped with getting recipes prepared so they can be cooked and served when you expected to</h2>
-      <a>
+      <div>
         <h2>Why do we require that you have an account</h2>
         <ul>
           <li>We need to be able to text you instructions</li>
@@ -21,7 +20,7 @@ function HowItWorks() {
         <ul>
           <li>Select a recipe</li>
           <li>Enter a date and time to cook them</li>
-          <li>You can look at your calender for upcomming recipe cook times</li>
+          {/* <li>You can look at your calender for upcomming recipe cook times</li> */}
         </ul>
         <h2>You can add a recipe</h2>
         <ul>
@@ -29,7 +28,7 @@ function HowItWorks() {
           <li>Fill in as many fields as possiable</li>
           <li>Currently we do not have the ability to go back and change a recipe so double check everything</li>
         </ul>
-      </a>
+      </div>
     </div>
 
   );

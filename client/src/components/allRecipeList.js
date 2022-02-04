@@ -24,6 +24,12 @@ useEffect(() => {
 
   // onload a call for a list of all recipe names and added to the recipe variable
 
+  const cookies = document.cookie
+    .split(';')
+    .map(cookie => cookie.split('='))
+    .reduce((accumulator, [key, value]) => ({ ...accumulator, [key.trim()]: decodeURIComponent(value) }), {});
+
+    console.log('LoggedIn cookie in allrecipelist', cookies.loggedIn)
   return (
     <main className="allRecipeList">
       <div className='recipes' >
@@ -32,12 +38,7 @@ useEffect(() => {
       </div>
       <div className='addNewRecipe' >
         <br/>
-          <Link to="/addRecipe">
-            <button type='button'>
-              Add a new Recipe
-            </button>
-          </Link>
-          
+              {cookies.loggedIn ? <Link to="/addRecipe"><button type='button'>Add a recipe</button></Link> : ''}
         <br/>
       </div>
       
@@ -47,10 +48,3 @@ useEffect(() => {
 }
 
 export default AllRecipeList;
-
-
-{/* <ol>{recipe.map((recipe, index) => {
-            return (
-              <Recipes key={index} name={recipe.name} isLiked={false} image_url={beer.image_url} />
-            )
-          })}</ol>   */}
