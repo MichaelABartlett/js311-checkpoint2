@@ -30,8 +30,8 @@ const db = require("../connection/db");
 // will add a new recipe to our recipes table in the database
 
 // the route, (the folder we are going into)controller.addRecipe(the function we are calling)
-router.post("/recipe/add", auth.checkJwt, controller.addRecipe); 
-//router.post("/recipe/add", controller.addRecipe); 
+//router.post("/recipe/add", auth.checkJwt, controller.addRecipe); 
+router.post("/recipe/add", controller.addRecipe); 
 
 
 // add instruction step to recipe
