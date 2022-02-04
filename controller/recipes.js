@@ -2,8 +2,8 @@
 
 const db = require('../connection/db');
 
-// const cors = require('cors');
-// const twilio = require('twilio');
+const cors = require('cors');
+const twilio = require('twilio');
 
 
 let mysql = require("mysql");
@@ -301,13 +301,16 @@ let putRecipe = (req, res) => {
 
 
 // Sending a text
-// const accountSid = process.env.TWILIO_ACCOUNT_SID;
-// const authToken = process.env.TWILIO_AUTH_TOKEN;
-// const client = new twilio(accountSid, authToken);
 
-let sendText = (req,res) => {
-    console.log('inside sendText in backend');
-    res.status(201).send("instid the sendText function");
+
+let sendText =  function(req,res){
+    console.log("inside sendText function")
+    if(error){
+        console.log("Failed to change to database", error);
+        res.status(500).send("Something has went wrong, the serving was not changed"); // if something went wrong 
+    }
+    console.log("inside sendText in backend");
+    res.status(201).send("inside the sendText function");
 }
 //     // GET variables, passed via query string
 
@@ -323,10 +326,14 @@ let sendText = (req,res) => {
 //     }).then((message) => console.log(message.body))
 // }
 
+let text = function(reg,res){
+    console.log('inside text in backend')
+}
+
 
 // end of recipes ******************************************************************************************
 
 
 
 // list all the functions that you want to export, this will allow them to be read in other files
-module.exports = { addRecipe, addRecipeInstructionStep , getRecipes, deleteRecipeByRecipe, listRecipes, putRecipe, listRecipeId, sendText} 
+module.exports = { addRecipe, addRecipeInstructionStep , getRecipes, deleteRecipeByRecipe, listRecipes, putRecipe, listRecipeId, sendText, text} 
