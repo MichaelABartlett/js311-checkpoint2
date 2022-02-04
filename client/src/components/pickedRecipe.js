@@ -45,13 +45,16 @@ function PickedRecipe() {
       console.log('res: ', res)
       setState({...state, recipeId: res.data[0].id})
       //setRecipeInstruction({...recipeInstruction, recipe_id: res.data[0].id})
-     console.log('recipe_id: ', state.recipeId )
+     //console.log('recipe_id: ', state.recipeId )
     
   })
 
   .catch(error => {
       console.log(error)
   })
+}
+
+const submit2 = () => {
   Axios.get(`/recipe_ingredient/${state.recipeId}`)
   .then(res => {
     console.log('res in recipe_ingredient:' , res)
@@ -91,6 +94,7 @@ function PickedRecipe() {
                   <br/>
               <button type="submit">Submit</button>
             </form>
+            <button onClick={submit2}>Submit2</button>
       </div>
       <h1>Selected Recipe</h1>
       <h2>{state.recipename}</h2>
