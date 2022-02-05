@@ -1,8 +1,6 @@
 import '../Stlyes/login.css'
 import React, { useState, useEffect} from "react";
 import Axios from 'axios';
-//require("dotenv").config();
-
 
 
 function LogIn() {
@@ -42,8 +40,11 @@ function LogIn() {
                 <br/>
             <input type="password" name="password" placeholder='Password' className='input' 
                   onChange={(e) => setState({...state, password: e.target.value})}></input>
+                  <br/>
               <button type="submit">Submit</button>
             </form>
+            <p>If you do not have a accout you can create one with Create Profile</p>
+
 
     </main>
 

@@ -33,12 +33,12 @@ useEffect(() => {
   return (
     <main className="allRecipeList">
       <div className='recipes' >
-        <h1>Recipes</h1>
+        <h1>List of Recipes</h1>
         <ul>{list.map(name => <li key={name.recipe_name}>{name.recipe_name}</li>)} </ul> 
       </div>
       <div className='addNewRecipe' >
         <br/>
-              {cookies.loggedIn ? <Link to="/addRecipe"><button type='button'>Add a recipe</button></Link> : ''}
+              {cookies.loggedIn ? <Link to="/addRecipe"><button type='button'>Add a recipe</button></Link> : 'If you want to look at recipe ingredients you will need to log in'}
         <br/>
       </div>
       

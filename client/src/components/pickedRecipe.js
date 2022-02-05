@@ -6,6 +6,7 @@ import Axios from 'axios';
 
 
 
+
 function PickedRecipe() {
 
   const [state, setState] = useState({
@@ -15,10 +16,10 @@ function PickedRecipe() {
 
   
   const [ingredients, setIngredients] = useState([])
+  
   const [cookTime, setCookTime] = useState({
     phoneNumber: "",
-    date: "",
-    time: ""
+    textmessage: "",
   })
   const [list, setList] = useState([])
 
@@ -64,32 +65,19 @@ function PickedRecipe() {
   })
   }
   
-  // const textIt = () => {
-  
-  // }
 
-  const textIt = (e)=> {
-    e.preventDefault();
-    // console.log('cookTime: ' , cookTime)
-    Axios.get("/recipe/sendText")
+const textIt = (e) => {
+  e.preventDefault();
+  console.log('phoneNumber:', cookTime.phoneNumber)
+  console.log('textmessage:', cookTime.textmessage)
+    Axios.get(`/user/sendtext?phoneNumber=${cookTime.phoneNumber}&textmessage=${cookTime.textmessage}`)
     .then(res => {
       console.log('got thru Axios to send message', res)
     })
     .catch(err => {
       console.log(err)
     })
-  }
-
-  const text = (e) => {
-    e.preventDefault();
-    Axios.get("/recipe/text")
-    .then(res => {
-      console.log('in the text axios call')
-    })
-    .catch(err => {
-      console.log(err)
-    })
-  }
+}
 
   return (
     <div className="pickedRecipe">
@@ -128,24 +116,19 @@ function PickedRecipe() {
         </section>
       <section className='selectDate' >
         <br/>
-        {/* <form className='eachItem' onSubmit={textIt} id='textIt'> */}
-        <div className='eachItem'>
-        <h1>Select Phone Number</h1>
-            <input type="text" name="phoneNumber" placeholder='EX:1234567894' className='input' autoComplete='off'
+        <form className='eachItem' onSubmit={textIt} id='textIt'>
+        <h1>Enter Your Phone Number</h1>
+            <input type="text" name="phoneNumber" placeholder='EX:512333444' className='input' autoComplete='off'
             onChange={(e) => setCookTime({...cookTime, phoneNumber: e.target.value})}></input>
                 <br/>
-          <h1>Select Cook Date</h1>
-            <input type="text" name="selectDate" placeholder='Ex:12/05/2022' className='input' autoComplete='off'
-            onChange={(e) => setCookTime({...cookTime, date: e.target.value})}></input>
+          <h1>Enter Your Prep Instructions</h1>
+            <input type="text" name="prepInstructions" placeholder='Enter prep instructions here' className='input' autoComplete='off'
+            onChange={(e) => setCookTime({...cookTime, textmessage: e.target.value})}></input>
                 <br/>
-          <h1>Select Cook Time</h1>
-            <input type="text" name="selectTime" placeholder='Ex:12:30AM' className='input' autoComplete='off'
-            onChange={(e) => setCookTime({...cookTime, time: e.target.value})}></input>
-                <br/>
-                {/* <button type="submit">Submit</button> */}
-                <button onClick={textIt}>sendText</button>
-        {/* </form> */}
-        </div>
+                <div className='it'>
+                <button className='sendText' type="submit">Send a text</button>
+                </div>
+        </form>
       </section>
     </div>
 

@@ -19,13 +19,13 @@ function Home() {
         <section className='images'>
           <div className="hungryKid">
               <div>
-                <h1>Your hungry family</h1>
+                <h1 className='lables'>Your hungry family</h1>
                 <img src={hungryKid} alt="Hungry Kid" height={300} width={450}/>
               </div>  
           </div>
           <div className="frozenFood">
               <div>
-                <h1>The food you should be cooking</h1>
+                <h1 className='lables'>The food you should be cooking</h1>
                 <img src={frozenChicken} alt="Frozen Chicken" height={300} width={450}/>
               </div>  
           </div>
