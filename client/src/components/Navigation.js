@@ -44,7 +44,7 @@ const Navigation = (props) => {
                         <Link style={{color: "white", textDecoration: 'none'}} to="/calender">Calender</Link>
                     </li> */}
                     <li className="navItem">
-                        <Link style={{color: "white", textDecoration: 'none'}} to="/createProfile">{cookies.loggedIn ? "Create Profile" : ''}</Link>
+                        <Link style={{color: "white", textDecoration: 'none'}} to="/createProfile">{!cookies.loggedIn ? "Create Profile" : ''}</Link>
                     </li>
                     <li className="navItem">
                         <Link style={{color: "white", textDecoration: 'none'}} to="/logIn">{!cookies.loggedIn ? "Log In" : ""}</Link>

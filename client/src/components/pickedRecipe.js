@@ -128,7 +128,8 @@ function PickedRecipe() {
         </section>
       <section className='selectDate' >
         <br/>
-        <form className='eachItem' onSubmit={textIt} id='textIt'>
+        {/* <form className='eachItem' onSubmit={textIt} id='textIt'> */}
+        <div className='eachItem'>
         <h1>Select Phone Number</h1>
             <input type="text" name="phoneNumber" placeholder='EX:1234567894' className='input' autoComplete='off'
             onChange={(e) => setCookTime({...cookTime, phoneNumber: e.target.value})}></input>
@@ -141,9 +142,10 @@ function PickedRecipe() {
             <input type="text" name="selectTime" placeholder='Ex:12:30AM' className='input' autoComplete='off'
             onChange={(e) => setCookTime({...cookTime, time: e.target.value})}></input>
                 <br/>
-                <button type="submit">Submit</button>
-                <button onClick={text}>sendText</button>
-        </form>
+                {/* <button type="submit">Submit</button> */}
+                <button onClick={textIt}>sendText</button>
+        {/* </form> */}
+        </div>
       </section>
     </div>
 
